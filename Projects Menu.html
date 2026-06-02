@@ -1330,6 +1330,76 @@
   @media (prefers-reduced-motion: reduce) {
     .cm-overlay, .cm-card, .cm-left > *, .cm-right > * { transition-duration: .01ms !important; }
   }
+
+  /* ============ MOBILE FIXES ============ */
+  /* Larger panel height for many-item categories */
+  .proj.open .proj-panel { max-height: 5000px; }
+
+  @media (max-width: 640px) {
+    /* Hero */
+    .tq-hero { padding: 24px 20px 56px; gap: 32px; min-height: auto; }
+    .tq-hero__pull { font-size: 17px; }
+
+    /* Section headings */
+    .roman-numeral { font-size: 5rem; }
+
+    /* Works: gallery 2-col on mobile */
+    .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .card-title { font-size: 13px; }
+    .card-sub { font-size: 8px; }
+    .proj-panel-inner { padding: 4px 8px 40px; }
+    .proj-head { padding: 20px 10px; }
+
+    /* Index list: hide year column */
+    .idx-line { grid-template-columns: 28px 1fr 1fr auto; gap: 10px; }
+    .idx-line .l-year { display: none; }
+    .idx-line .l-name { font-size: 17px; }
+
+    /* Pricing — ledger: collapse to card layout */
+    .lg-head { display: none; }
+    .lg-row {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px 16px;
+      padding: 20px 12px;
+    }
+    .lg-num { display: none; }
+    .lg-name { grid-column: 1; font-size: 22px; }
+    .lg-desc { grid-column: 1 / -1; font-size: 12px; }
+    .lg-price { grid-column: 2; grid-row: 1; align-items: flex-end; }
+    .lg-price .amt { font-size: 22px; }
+
+    /* Pricing — tonal: 1 column */
+    .tonal-grid { grid-template-columns: 1fr; gap: 12px; }
+    .tonal-card { min-height: auto; padding: 22px 20px 20px; }
+
+    /* Pricing — scale */
+    .scale-steps { height: 200px; }
+    .scale-step .step-label { font-size: 14px; }
+    .scale-step .step-price { font-size: 14px; }
+
+    /* About section padding */
+    section.py-24 { padding-top: 64px; padding-bottom: 64px; }
+    section.py-32 { padding-top: 64px; padding-bottom: 64px; }
+    .py-24.px-12 { padding-left: 16px; padding-right: 16px; }
+    .px-12 { padding-left: 16px !important; padding-right: 16px !important; }
+
+    /* Lightbox on mobile */
+    .lb-desc { padding: 24px 20px; gap: 14px; }
+    .lb-title { font-size: 36px; }
+    .lb-body { font-size: 15px; }
+    .lb-spec { grid-template-columns: 90px 1fr; gap: 10px 16px; font-size: 10px; }
+    .lb-actions { flex-wrap: wrap; }
+
+    /* Footer */
+    footer .max-w-7xl { flex-direction: column; gap: 16px; align-items: flex-start; }
+    footer .flex.gap-12 { gap: 20px; flex-wrap: wrap; }
+  }
+
+  @media (max-width: 380px) {
+    .gallery { grid-template-columns: 1fr; }
+    .tq-toggle button { padding: 10px 14px; font-size: 10px; letter-spacing: 0.2em; }
+  }
 </style>
 </head>
 <body class="bg-background text-on-surface">
@@ -1366,7 +1436,7 @@
     <div class="tq-hero__stage">
       <div class="tq-hero__art" id="tqArt">
         <div class="tq-hero__frame tq-hero__frame--back">
-          <img alt="" src="assets/hero-alt.png"/>
+          <img loading="lazy" alt="" src="assets/hero-alt.jpg"/>
         </div>
         <div class="tq-hero__frame">
           <img class="tq-layer is-on" src="assets/hero.jpg" alt="Tabukas Qis studio"/>
@@ -1829,49 +1899,49 @@ const state = { ...TWEAK_DEFAULTS };
 /* ================= PROJECT DATA ================= */
 const WORKS = {
   murals: [
-    { t: "Garden Fountain",      y: "2024", place: "Private Residence",      img: "assets/murals/mural-01.png", medium: "Hand-painted · Mineral pigment", dims: "3.6 × 2.8 m",
+    { t: "Garden Fountain",      y: "2024", place: "Private Residence",      img: "assets/murals/mural-01.jpg", medium: "Hand-painted · Mineral pigment", dims: "3.6 × 2.8 m",
       desc: "A Pompeian-inspired garden mural built around a scalloped stone fountain. Doves and songbirds gather in deep, layered foliage — the whole wall worked in soft mineral greens." },
-    { t: "Garden of Birds",      y: "2024", place: "Hallway Commission",     img: "assets/murals/mural-02.png", medium: "Hand-painted · Tempera",         dims: "4.0 × 2.6 m",
+    { t: "Garden of Birds",      y: "2024", place: "Hallway Commission",     img: "assets/murals/mural-02.jpg", medium: "Hand-painted · Tempera",         dims: "4.0 × 2.6 m",
       desc: "An ambient botanical scene alive with doves and a single rufous bird. Branches, ferns and a low fountain are treated with equal, unhurried attention." },
-    { t: "Rufous Songbird",      y: "2025", place: "Detail study",           img: "assets/murals/mural-03.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+    { t: "Rufous Songbird",      y: "2025", place: "Detail study",           img: "assets/murals/mural-03.jpg", medium: "Hand-painted · Pigment",         dims: "Detail",
       desc: "A close study from a larger garden scheme — a single rufous bird painted against muted sage foliage, every feather rendered by hand." },
-    { t: "Twilight Woodland",    y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-04.png", medium: "Hand-painted · Patina glaze",    dims: "2.4 × 2.6 m",
+    { t: "Twilight Woodland",    y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-04.jpg", medium: "Hand-painted · Patina glaze",    dims: "2.4 × 2.6 m",
       desc: "An atmospheric woodland at dusk, painted behind a carved stone basin. Layered glazes hold the quiet, smoke-toned light of the forest interior." },
-    { t: "Owls in the Aspens",   y: "2024", place: "Private Residence",      img: "assets/murals/mural-05.png", medium: "Hand-painted · Copper leaf",     dims: "3.2 × 2.7 m",
+    { t: "Owls in the Aspens",   y: "2024", place: "Private Residence",      img: "assets/murals/mural-05.jpg", medium: "Hand-painted · Copper leaf",     dims: "3.2 × 2.7 m",
       desc: "A pair of owls perched among slender aspens, set against a warm copper-leaf ground that catches and shifts with the light through the day." },
-    { t: "Bathers",              y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-06.png", medium: "Hand-painted · Mineral paint",   dims: "2.6 × 2.2 m",
+    { t: "Bathers",              y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-06.jpg", medium: "Hand-painted · Mineral paint",   dims: "2.6 × 2.2 m",
       desc: "A figurative bathing scene in muted blues for an interior bathroom — classical in feeling, quiet and tonal in execution." },
-    { t: "Pomegranate Chinoiserie", y: "2024", place: "Drawing Room",        img: "assets/murals/mural-07.png", medium: "Hand-painted · Tempera",         dims: "3.8 × 2.9 m",
+    { t: "Pomegranate Chinoiserie", y: "2024", place: "Drawing Room",        img: "assets/murals/mural-07.jpg", medium: "Hand-painted · Tempera",         dims: "3.8 × 2.9 m",
       desc: "A chinoiserie scheme of flowering branches, pomegranates and trailing botanicals, painted across a full reception wall in warm chalk tones." },
-    { t: "Bee-eaters & Blossom", y: "2025", place: "Canvas Commission",      img: "assets/murals/mural-08.png", medium: "Hand-painted on canvas",         dims: "1.6 × 1.6 m",
+    { t: "Bee-eaters & Blossom", y: "2025", place: "Canvas Commission",      img: "assets/murals/mural-08.jpg", medium: "Hand-painted on canvas",         dims: "1.6 × 1.6 m",
       desc: "Two golden bee-eaters at rest on a cherry-blossom branch, against a soft turquoise field. Painted as a free-standing canvas for a bedroom wall." },
-    { t: "Blossom Headboard",    y: "2025", place: "Hospitality, installed", img: "assets/murals/mural-09.png", medium: "Hand-painted on canvas",         dims: "Installed view",
+    { t: "Blossom Headboard",    y: "2025", place: "Hospitality, installed", img: "assets/murals/mural-09.jpg", medium: "Hand-painted on canvas",         dims: "Installed view",
       desc: "The blossom-and-bee-eater canvas in situ above a bed, beneath an arched ceiling — the turquoise ground answering the room's cool light." },
-    { t: "Poolside",             y: "2024", place: "Interior Commission",    img: "assets/murals/mural-10.png", medium: "Hand-painted · Mixed media",     dims: "2.2 × 1.7 m",
+    { t: "Poolside",             y: "2024", place: "Interior Commission",    img: "assets/murals/mural-10.jpg", medium: "Hand-painted · Mixed media",     dims: "2.2 × 1.7 m",
       desc: "A modern figurative composition — a bather in red against blocked geometric colour — installed in a poured-concrete interior." },
-    { t: "Pool Garden",          y: "2025", place: "Outdoor Commission",     img: "assets/murals/mural-11.png", medium: "Exterior mural · UV pigment",    dims: "5.0 × 2.5 m",
+    { t: "Pool Garden",          y: "2025", place: "Outdoor Commission",     img: "assets/murals/mural-11.jpg", medium: "Exterior mural · UV pigment",    dims: "5.0 × 2.5 m",
       desc: "An outdoor mural bringing calm and figure to a poolside courtyard — proof that a painted wall belongs to gardens and terraces as much as to rooms." },
-    { t: "Spring Branches",      y: "2024", place: "Sitting Room",           img: "assets/murals/mural-12.png", medium: "Hand-painted · Pigment",         dims: "4.2 × 2.7 m",
+    { t: "Spring Branches",      y: "2024", place: "Sitting Room",           img: "assets/murals/mural-12.jpg", medium: "Hand-painted · Pigment",         dims: "4.2 × 2.7 m",
       desc: "Flowering branches and small birds scattered lightly across a warm plaster wall — a softer, more open take on the chinoiserie tradition." },
-    { t: "Gold Leaf Study",      y: "2025", place: "Studio process",         img: "assets/murals/mural-13.png", medium: "Pigment · 24ct gold leaf",       dims: "Detail",
+    { t: "Gold Leaf Study",      y: "2025", place: "Studio process",         img: "assets/murals/mural-13.jpg", medium: "Pigment · 24ct gold leaf",       dims: "Detail",
       desc: "A process detail — gold leaf laid by hand into a painted leaf, the gilding catching against deep botanical greens." },
-    { t: "The Bullfinch",        y: "2025", place: "Magnolia Commission",    img: "assets/murals/mural-14.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+    { t: "The Bullfinch",        y: "2025", place: "Magnolia Commission",    img: "assets/murals/mural-14.jpg", medium: "Hand-painted · Pigment",         dims: "Detail",
       desc: "A bullfinch on a branch among magnolia, painted against a soft taupe ground — a single bird study from a larger blossom wall." },
-    { t: "Magnolia Room",        y: "2025", place: "Bedroom, installed",     img: "assets/murals/mural-15.png", medium: "Hand-painted · Pigment",         dims: "Installed view",
+    { t: "Magnolia Room",        y: "2025", place: "Bedroom, installed",     img: "assets/murals/mural-15.jpg", medium: "Hand-painted · Pigment",         dims: "Installed view",
       desc: "A magnolia and blossom tree spreading across a bedroom wall, drawn into the corner of the room and answered by the light from the window." },
-    { t: "Magnolia & Birds",     y: "2025", place: "Bedroom Commission",     img: "assets/murals/mural-16.png", medium: "Hand-painted · Pigment",         dims: "4.6 × 2.8 m",
+    { t: "Magnolia & Birds",     y: "2025", place: "Bedroom Commission",     img: "assets/murals/mural-16.jpg", medium: "Hand-painted · Pigment",         dims: "4.6 × 2.8 m",
       desc: "A full-wall magnolia tree in bloom, with brightly coloured birds — jays, bee-eaters and finches — perched throughout the branches." },
-    { t: "Two Owls, Copper",     y: "2024", place: "Panel Commission",       img: "assets/murals/mural-17.png", medium: "Hand-painted · Copper leaf",     dims: "1.8 × 2.4 m",
+    { t: "Two Owls, Copper",     y: "2024", place: "Panel Commission",       img: "assets/murals/mural-17.jpg", medium: "Hand-painted · Copper leaf",     dims: "1.8 × 2.4 m",
       desc: "Two owls nestled among birch trunks on a luminous copper-leaf ground — a quieter, more graphic companion to the aspen mural." },
-    { t: "White-eye & Magnolia", y: "2026", place: "Magnolia Commission",    img: "assets/murals/mural-18.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+    { t: "White-eye & Magnolia", y: "2026", place: "Magnolia Commission",    img: "assets/murals/mural-18.jpg", medium: "Hand-painted · Pigment",         dims: "Detail",
       desc: "A small white-eye perched among blossom and a single open magnolia, painted with fine detail against a warm, chalky ground." },
   ],
   paintings: [
-    { t: "Study No. 04",       y: "2023", place: "Oil on linen",   img: "assets/hero-alt.png", medium: "Oil on linen",                   dims: "120 × 90 cm",
+    { t: "Study No. 04",       y: "2023", place: "Oil on linen",   img: "assets/hero-alt.jpg", medium: "Oil on linen",                   dims: "120 × 90 cm",
       desc: "A tonal study exploring the relationship between weight and light. Part of an ongoing series of interior observations." },
     { t: "Quiet Blue",         y: "2024", place: "Oil on panel",   img: "assets/hero.jpg",     medium: "Oil on gessoed panel",           dims: "80 × 60 cm",
       desc: "A meditative composition in ultramarine and bone white. The surface is built slowly, through many thin layers, toward a quiet depth." },
-    { t: "Ochre Interior",     y: "2024", place: "Mixed media",    img: "assets/hero-alt.png", medium: "Mixed media on canvas",          dims: "150 × 110 cm",
+    { t: "Ochre Interior",     y: "2024", place: "Mixed media",    img: "assets/hero-alt.jpg", medium: "Mixed media on canvas",          dims: "150 × 110 cm",
       desc: "A domestic interior reduced to its tonal essentials — ochre, umber, and the pale stone of an unseen window." },
     { t: "Evening Composition",y: "2025", place: "Oil on linen",   img: "assets/hero.jpg",     medium: "Oil on linen",                   dims: "200 × 140 cm",
       desc: "A large-format evening piece painted over several months. Colour gathers in the lower half of the canvas, the way light does in a room at dusk." },
@@ -1879,11 +1949,11 @@ const WORKS = {
   interiors: [
     { t: "Shoreditch Loft",    y: "2024", place: "Residential",    img: "assets/hero.jpg",     medium: "Full-space curation",            dims: "180 m²",
       desc: "A complete visual programme for a converted warehouse — commissioned murals, selected paintings and a palette of quiet, architectural finishes." },
-    { t: "Coast House",        y: "2025", place: "Holiday home",   img: "assets/hero-alt.png", medium: "Curated collection",             dims: "260 m²",
+    { t: "Coast House",        y: "2025", place: "Holiday home",   img: "assets/hero-alt.jpg", medium: "Curated collection",             dims: "260 m²",
       desc: "A coastal residence set to a restrained palette of limestone, salt and weathered timber. Works respond directly to the horizon and the light of the estuary." },
     { t: "Studio Belgravia",   y: "2025", place: "Office",         img: "assets/hero.jpg",     medium: "Commission & curation",          dims: "420 m²",
       desc: "A workplace scheme for a design studio — three commissioned murals anchor the main floor, supported by a rotating selection of works on paper." },
-    { t: "Nordic Retreat",     y: "2026", place: "Hospitality",    img: "assets/hero-alt.png", medium: "Hospitality curation",           dims: "780 m²",
+    { t: "Nordic Retreat",     y: "2026", place: "Hospitality",    img: "assets/hero-alt.jpg", medium: "Hospitality curation",           dims: "780 m²",
       desc: "A boutique hotel project realised in collaboration with the architects. Each room receives a single work, chosen for its relationship to the view beyond the window." },
   ],
 };
@@ -1901,7 +1971,7 @@ function renderPanel(proj) {
       <div class="gallery">
         ${works.map((w, i) => `
           <a class="card" href="#" data-cat="${cat}" data-idx="${i}">
-            <div class="card-img"><img src="${w.img}" alt="${w.t}"/></div>
+            <div class="card-img"><img loading="lazy" src="${w.img}" alt="${w.t}"/></div>
             <div class="card-meta">
               <div>
                 <div class="card-title">${w.t}</div>
@@ -1932,7 +2002,7 @@ function renderPanel(proj) {
       <div class="strip">
         ${works.map((w, i) => `
           <a class="strip-tile" href="#">
-            <div class="strip-img"><img src="${w.img}" alt="${w.t}"/></div>
+            <div class="strip-img"><img loading="lazy" src="${w.img}" alt="${w.t}"/></div>
             <div class="strip-caption">
               <span class="t">${w.t}</span>
               <span style="opacity:.5">${idx}.${String(i+1).padStart(2,'0')} · ${w.y}</span>
@@ -2166,7 +2236,7 @@ function openLightbox(card) {
   // Build flyer at the source position
   const flyer = document.createElement("div");
   flyer.className = "lb-flyer";
-  flyer.innerHTML = `<img src="${img.src}" alt=""/>`;
+  flyer.innerHTML = `<img loading="lazy" src="${img.src}" alt=""/>`;
   flyer.style.left = "0px";
   flyer.style.top = "0px";
   flyer.style.width = srcRect.width + "px";

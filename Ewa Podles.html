@@ -637,6 +637,87 @@
   @media (prefers-reduced-motion: reduce) {
     .cm-overlay, .cm-card, .cm-left > *, .cm-right > * { transition-duration: .01ms !important; }
   }
+
+  /* ============ MOBILE FIXES ============ */
+
+  /* Nav — missing on Ewa page */
+  @media (max-width: 720px) {
+    .tq-nav { grid-template-columns: auto 1fr; gap: 16px; padding: 16px 20px; }
+    .tq-nav__center { grid-column: 1 / -1; grid-row: 2; }
+    .tq-nav__right { display: none; }
+    .tq-toggle button { padding: 10px 18px; letter-spacing: 0.25em; }
+  }
+
+  @media (max-width: 640px) {
+    /* Hero */
+    .ewa-hero { padding: 32px 20px 48px; gap: 28px; min-height: auto; }
+    .ewa-hero__type { padding-left: 0; }
+    .ewa-hero__name { font-size: clamp(56px, 14vw, 80px); }
+    .ewa-hero__pull { font-size: 17px; margin-top: 18px; }
+    .ewa-hero__meta { display: none; }
+    .ewa-hero__rail { display: none; }
+    .ewa-hero__stage { gap: 0; }
+
+    /* Section headings */
+    .roman-numeral { font-size: 5rem; }
+
+    /* About */
+    .ewa-bio { font-size: 17px; }
+    .ewa-bio-meta { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
+
+    /* Stack carousel */
+    .stk-arena {
+      grid-template-columns: 44px 1fr 28px;
+      gap: 4px;
+      min-height: 80vh;
+      padding: 0 4px;
+    }
+    .stk-counter .cur { font-size: 36px; }
+    .stk-counter .sep { width: 22px; margin: 12px 0; }
+    .stk-counter .tot { font-size: 16px; }
+    .card-stack { width: 100%; max-width: 320px; height: 480px; transform: none; }
+    .stk-card { width: calc(100% - 16px); }
+
+    /* Split lightbox on mobile */
+    .splb { grid-template-columns: 1fr; grid-template-rows: 55% 45%; }
+    .splb:not(.is-open) .splb-left  { transform: translateY(-100%); }
+    .splb:not(.is-open) .splb-right { transform: translateY(100%); }
+    .splb-left { padding: 20px; }
+    .splb-right { padding: 24px 24px 32px; justify-content: flex-start; overflow-y: auto; }
+    .splb-ghost { font-size: 56px; }
+    .splb-title { font-size: clamp(28px, 8vw, 44px); }
+    .splb-body { font-size: 14px; }
+    .splb-thumbs { gap: 10px; }
+    .splb-thumb__frame { height: 60px; }
+
+    /* Print marquee */
+    .pclb-track { padding: 0 16px; }
+    .pclb-slide { height: 60%; margin-right: 20px; }
+    .pclb-bar { padding: 14px 18px; gap: 12px; }
+    .pclb-bar__title { font-size: 17px; }
+
+    /* Exhibitions */
+    .ex-year { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
+    .ex-year__num { font-size: 36px; }
+    .ex-row { grid-template-columns: 1fr; gap: 2px; padding: 12px 4px; }
+    .ex-row__loc { text-align: left; }
+
+    /* Footer */
+    footer { padding: 32px 20px; }
+    footer .row { flex-direction: column; gap: 16px; align-items: flex-start; }
+    footer .flex.gap-12 { gap: 20px; flex-wrap: wrap; }
+
+    /* Section padding */
+    .py-32 { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .px-12 { padding-left: 16px !important; padding-right: 16px !important; }
+    .py-24 { padding-top: 48px !important; padding-bottom: 48px !important; }
+  }
+
+  @media (max-width: 380px) {
+    .card-stack { max-width: 270px; height: 400px; }
+    .tq-toggle button { padding: 10px 12px; font-size: 10px; letter-spacing: 0.18em; }
+    .tq-toggle button .ewa-italic { font-size: 12px; margin-left: 3px; }
+  }
 </style>
 </head>
 <body>
@@ -788,7 +869,7 @@
   <div class="splb-panel splb-left">
     <div class="splb-stage">
       <button class="splb-nav prev" id="splbPrev" aria-label="Previous image">‹</button>
-      <img id="splbImg" alt=""/>
+      <img loading="lazy" id="splbImg" alt=""/>
       <button class="splb-nav next" id="splbNext" aria-label="Next image">›</button>
       <div class="splb-count" id="splbCount"></div>
     </div>
@@ -1114,7 +1195,7 @@ function openSplb(it) {
   // build the labelled filmstrip / nav only when there's a collection to browse
   splbThumbs.innerHTML = multi ? lbImages.map((src, k) =>
     `<button class="splb-thumb" data-k="${k}">
-       <span class="splb-thumb__frame"><img src="${src}" alt=""/></span>
+       <span class="splb-thumb__frame"><img loading="lazy" src="${src}" alt=""/></span>
        <span class="splb-thumb__label">${labelFor(src, k)}</span>
      </button>`
   ).join('') : '';
@@ -1241,7 +1322,7 @@ function buildStack(opts) {
 
   stackEl.innerHTML = items.map((it, i) =>
     `<button class="stk-card" data-i="${i}" style="z-index:0;opacity:0">
-       <img src="${it.img}" alt="${stripTags(it.title)}" draggable="false"/>
+       <img loading="lazy" src="${it.img}" alt="${stripTags(it.title)}" draggable="false"/>
      </button>`
   ).join('');
   dotsEl.innerHTML = items.map((it, i) =>
