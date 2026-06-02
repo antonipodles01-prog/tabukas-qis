@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Tabukas Qis — Hand-Painted Murals &amp; Fine Art</title>
 <meta name="description" content="Tabukas Qis is a London studio creating hand-painted murals, paintings and curated collections — where art meets interior."/>
-<link rel="icon" type="image/png" href="assets/favicon.png"/>
-<link rel="apple-touch-icon" href="assets/favicon.png"/>
+<link rel="icon" type="image/png" href="assets/favicon.png?v=2"/>
+<link rel="apple-touch-icon" href="assets/favicon.png?v=2"/>
 <meta name="theme-color" content="#ffffff"/>
 <!-- Open Graph / social — replace tabukasqis.com with your live domain before publishing -->
 <meta property="og:type" content="website"/>
@@ -1349,12 +1349,13 @@
 
     /* ---- SECTION HEADINGS ---- */
     .roman-numeral { font-size: 3.5rem; }
-    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 18px; }
-    /* Section heading block → first row gap */
-    .flex.flex-col.items-center.mb-24 { margin-bottom: 4.5rem !important; }
-
-    /* ---- PROJECT ROWS — more breathing room ---- */
-    .proj-head { padding: 28px 12px; }
+    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 20px; }
+    /* Gap between heading block and first row — target container directly */
+    #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
+      margin-bottom: 4rem !important;
+    }
+    /* Extra breathing above first project row */
+    #projects { padding-top: 1.5rem; }
 
     /* ---- LIGHTBOX — hide description, date, view-process on mobile ---- */
     .lb-body { display: none !important; }
@@ -1376,7 +1377,7 @@
     .gap-12 { gap: 28px !important; }
 
     /* ---- WORKS / GALLERY ---- */
-    .proj-head { padding: 20px 12px; }
+    .proj-head { padding: 32px 12px; }
     .proj-panel-inner { padding: 4px 10px 40px; }
     .gallery { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
     .card-title { font-size: 12px; }
