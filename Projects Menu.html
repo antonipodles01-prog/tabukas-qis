@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tabukas Qis — Hand-Painted Murals &amp; Fine Art</title>
+<meta name="description" content="Tabukas Qis is a London studio creating hand-painted murals, paintings and curated collections — where art meets interior."/>
+<link rel="icon" type="image/png" href="assets/favicon.png"/>
+<link rel="apple-touch-icon" href="assets/favicon.png"/>
+<meta name="theme-color" content="#ffffff"/>
+<!-- Open Graph / social — replace tabukasqis.com with your live domain before publishing -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Tabukas Qis"/>
+<meta property="og:title" content="Tabukas Qis — Hand-Painted Murals &amp; Fine Art"/>
+<meta property="og:description" content="A London studio creating hand-painted murals, paintings and curated collections — where art meets interior."/>
+<meta property="og:image" content="https://tabukasqis.com/assets/og-image.jpg"/>
+<meta property="og:url" content="https://tabukasqis.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Tabukas Qis — Hand-Painted Murals &amp; Fine Art"/>
+<meta name="twitter:description" content="Hand-painted murals, paintings and curated collections."/>
+<meta name="twitter:image" content="https://tabukasqis.com/assets/og-image.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          surface: "#ffffff",
+          "on-surface": "#000000",
+          "on-surface-variant": "#666666",
+          "outline-variant": "#e5e5e5",
+          background: "#ffffff",
+          primary: "#000000",
+          "on-primary": "#ffffff",
+        },
+        borderRadius: { DEFAULT: "0px", lg: "0px", xl: "0px", full: "9999px" },
+        fontFamily: {
+          headline: ["Newsreader", "serif"],
+          body: ["Inter", "sans-serif"],
+          label: ["Inter", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    font-size: 1rem;
+  }
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif-display {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+  }
+  .roman-numeral {
+    font-family: 'Newsreader', serif;
+    font-size: 8rem;
+    line-height: 1;
+    font-weight: 200;
+    opacity: 0.9;
+  }
+  .section-title {
+    font-family: 'Newsreader', serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: -1.5rem;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #000; }
+
+  /* ============ NAV (universal pill toggle) ============ */
+  .tq-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 22px 36px;
+    gap: 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 80;
+  }
+  .tq-nav__left { display: flex; align-items: center; }
+  .tq-nav__left img { width: 48px; height: auto; display: block; }
+  .tq-nav__center { display: flex; justify-content: center; }
+  .tq-toggle { position: relative; display: inline-flex; align-items: center; border: 1px solid #000; background: #fff; padding: 5px; border-radius: 9999px; overflow: hidden; }
+  .tq-toggle__pill { position: absolute; top: 5px; bottom: 5px; background: #000; border-radius: 9999px; transition: left .55s cubic-bezier(.77,0,.18,1), width .55s cubic-bezier(.77,0,.18,1); z-index: 0; }
+  .tq-toggle button { position: relative; z-index: 1; border: none; background: transparent; padding: 12px 28px; cursor: pointer; color: #000; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 600; line-height: 1; transition: color .35s ease; white-space: nowrap; }
+  .tq-toggle button.is-active { color: #fff; font-weight: 800; }
+  .tq-toggle button .ewa-italic { font-family: 'Newsreader', serif; font-style: italic; font-weight: 300; text-transform: none; letter-spacing: -0.01em; font-size: 14px; margin-left: 6px; opacity: .85; }
+  .tq-nav__right { display: flex; justify-content: flex-end; align-items: center; }
+  .tq-contact { display: inline-flex; align-items: baseline; gap: 12px; background: transparent; border: none; cursor: pointer; color: #000; padding: 0; text-decoration: none; font-family: 'Newsreader', serif; font-size: 30px; line-height: 1; letter-spacing: -0.025em; font-style: italic; font-weight: 300; text-transform: lowercase; }
+  .tq-contact .arrow { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; font-weight: 700; opacity: .55; font-style: normal; }
+  .tq-contact .word { background: linear-gradient(currentColor, currentColor) bottom left / 0 1px no-repeat; transition: background-size .55s cubic-bezier(.77,0,.18,1); padding-bottom: 4px; }
+  .tq-contact:hover .word { background-size: 100% 1px; }
+  .tq-contact .cursor { width: 9px; height: 9px; background: #c8a25b; border-radius: 50%; align-self: center; animation: tq-blink 1.2s ease-in-out infinite; }
+  @keyframes tq-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+  @media (max-width: 720px) {
+    .tq-nav { grid-template-columns: auto 1fr; gap: 16px; padding: 16px 20px; }
+    .tq-nav__center { grid-column: 1 / -1; grid-row: 2; }
+    .tq-nav__right { display: none; }
+    .tq-toggle button { padding: 10px 18px; letter-spacing: 0.25em; }
+  }
+
+  /* ====== HERO (studio) ====== */
+  .tq-hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 72px;
+    align-items: center;
+    padding: 64px 48px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tq-hero__type { position: relative; z-index: 3; }
+  .tq-hero__type > * { opacity: 0; transform: translateY(20px); animation: tqRise .9s cubic-bezier(.2,.6,.2,1) forwards; }
+  .tq-hero__type > *:nth-child(1) { animation-delay: .05s; }
+  .tq-hero__type > *:nth-child(2) { animation-delay: .15s; }
+  .tq-hero__type > *:nth-child(3) { animation-delay: .28s; }
+  .tq-hero__type > *:nth-child(4) { animation-delay: .40s; }
+  .tq-hero__type > *:nth-child(5) { animation-delay: .52s; }
+  @keyframes tqRise { to { opacity: 1; transform: translateY(0); } }
+
+  .tq-hero__eyebrow {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 600;
+    opacity: .55; display: flex; align-items: center; gap: 14px; margin-bottom: 30px;
+  }
+  .tq-hero__eyebrow::after { content: ""; display: inline-block; width: 56px; height: 1px; background: #000; opacity: .35; }
+  .tq-hero__word {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(64px, 8.4vw, 150px);
+    line-height: .82;
+    letter-spacing: -0.045em;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .tq-hero__word em { display: block; font-style: italic; font-weight: 300; opacity: .92; }
+  .tq-hero__rule { height: 1px; background: #A67C52; width: 0; margin-top: 28px; animation: tqRuleGrow 1.2s cubic-bezier(.77,0,.18,1) .65s forwards; }
+  @keyframes tqRuleGrow { to { width: 116px; } }
+  .tq-hero__pull {
+    font-family: 'Newsreader', serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(18px, 1.5vw, 24px);
+    line-height: 1.55; max-width: 38ch; margin-top: 30px; opacity: .8;
+  }
+
+  /* art stage */
+  .tq-hero__stage { position: relative; z-index: 2; perspective: 1500px; }
+  .tq-hero__art {
+    position: relative; aspect-ratio: 4/5; max-height: 80vh;
+    transform-style: preserve-3d;
+    transition: transform .6s cubic-bezier(.2,.6,.2,1);
+  }
+  .tq-hero__frame {
+    position: absolute; inset: 0; overflow: hidden; background: #eae7e1;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,.4);
+  }
+  .tq-hero__frame:not(.tq-hero__frame--back)::after {
+    content: ""; position: absolute; inset: 16px; z-index: 3;
+    border: 1px solid rgba(255,255,255,.5); pointer-events: none;
+  }
+  .tq-hero__frame--back {
+    inset: auto -34px -34px auto; width: 56%; height: 46%;
+    background: #d9d2c6; opacity: .9;
+    transform: translateZ(-60px);
+    box-shadow: 0 30px 50px -30px rgba(0,0,0,.35);
+  }
+  .tq-hero__frame--back img { filter: grayscale(70%) brightness(.96); }
+  .tq-layer {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+    opacity: 0; transform: scale(1.1);
+    transition: opacity 1s cubic-bezier(.2,.6,.2,1);
+  }
+  .tq-layer.is-on { opacity: 1; transform: scale(1.12); transition: opacity 1s cubic-bezier(.2,.6,.2,1), transform 9s linear; }
+  .tq-hero__corner {
+    position: absolute; top: 16px; left: 16px; z-index: 4;
+    min-width: 46px; height: 46px; padding: 0 10px;
+    border: 1px solid rgba(255,255,255,.7); border-radius: 9999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: #fff;
+    backdrop-filter: blur(4px); transform: translateZ(50px); font-variant-numeric: tabular-nums;
+  }
+  .tq-hero__cap {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+    padding: 24px; color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,.62));
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+    font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600;
+    transform: translateZ(50px);
+  }
+  .tq-hero__cap span { transition: opacity .4s ease; }
+  .tq-hero__cap.swapping span { opacity: 0; }
+  .tq-hero__cap .cap-title { font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; font-size: 16px; letter-spacing: 0; text-transform: none; }
+
+  .tq-hero__cue {
+    position: absolute; left: 48px; bottom: 34px; z-index: 5;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 700; opacity: .45;
+  }
+  .tq-hero__cue .line { width: 46px; height: 1px; background: #000; transform-origin: left; animation: tqCue 2.4s ease-in-out infinite; }
+  @keyframes tqCue { 0%,100% { transform: scaleX(.4); opacity: .4; } 50% { transform: scaleX(1); opacity: 1; } }
+
+  @media (max-width: 900px) {
+    .tq-hero { grid-template-columns: 1fr; padding: 104px 24px 72px; gap: 44px; }
+    .tq-hero__art { transform: none !important; }
+    .tq-hero__frame--back { display: none; }
+    .tq-hero__cue { display: none; }
+  }
+
+  /* ====== PROJECT ROW (the trigger) ====== */
+  .proj {
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: background .5s ease, color .5s ease;
+  }
+  .proj-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 32px 16px;
+    transition: padding .5s cubic-bezier(.2,.6,.2,1);
+  }
+  .proj:not(.open):hover {
+    background: #000;
+    color: #fff;
+  }
+  .proj:not(.open):hover .chev { transform: translateY(2px); }
+  .proj.open {
+    background: #fafafa;
+  }
+  .proj.open .proj-head { padding-bottom: 24px; padding-top: 36px; }
+  .proj-left {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+  }
+  .proj-num {
+    font-size: 10px;
+    opacity: .4;
+    font-family: ui-monospace, Menlo, Monaco, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .proj.open .proj-num { opacity: 1; }
+  .proj-title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.25rem, 6vw, 4.25rem);
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    transition: font-style .3s;
+  }
+  .proj.open .proj-title { font-style: italic; }
+  .proj-right {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .proj-meta {
+    text-align: right;
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .proj-meta { display: block; }
+  }
+  .proj-meta .date {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .proj-meta .tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-top: 2px;
+  }
+  .chev {
+    font-family: 'Newsreader', serif;
+    font-size: 28px;
+    line-height: 1;
+    transition: transform .45s cubic-bezier(.2,.6,.2,1);
+    display: inline-block;
+    width: 22px;
+    text-align: center;
+  }
+  .proj.open .chev { transform: rotate(90deg); }
+
+  /* ====== EXPANDING PANEL ====== */
+  .proj-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .7s cubic-bezier(.77,0,.18,1);
+  }
+  .proj.open .proj-panel { max-height: 1200px; }
+  .proj-panel-inner {
+    padding: 8px 16px 56px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .5s ease .15s, transform .6s cubic-bezier(.2,.6,.2,1) .15s;
+  }
+  .proj.open .proj-panel-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* -- Works grid (default content inside the panel) -- */
+  .works-head {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr auto;
+    gap: 24px;
+    padding: 10px 4px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .9;
+    margin-bottom: 4px;
+  }
+
+  /* Variant A: gallery cards grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .card {
+    cursor: pointer;
+    transition: transform .5s cubic-bezier(.2,.6,.2,1);
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card-img {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #eae7e1;
+    position: relative;
+  }
+  .card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .9s cubic-bezier(.2,.6,.2,1), filter .5s;
+    filter: grayscale(10%);
+  }
+  .card:hover .card-img img { transform: scale(1.05); filter: grayscale(0%); }
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 10px;
+    gap: 8px;
+  }
+  .card-title {
+    font-family: 'Newsreader', serif;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .card-sub {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: .5;
+    margin-top: 2px;
+  }
+  .card-index {
+    font-size: 10px;
+    opacity: .4;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+  }
+
+  /* Variant B: index list (text rows) */
+  .idx-list { border-top: 1px solid #000; margin-top: 20px; }
+  .idx-line {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 140px auto;
+    gap: 24px;
+    padding: 16px 4px;
+    border-bottom: 1px solid #e5e5e5;
+    align-items: baseline;
+    cursor: pointer;
+    transition: background .3s, color .3s, padding .35s;
+  }
+  .idx-line:hover { background: #000; color: #fff; padding-left: 16px; }
+  .idx-line .l-num {
+    font-size: 10px;
+    opacity: .4;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+  }
+  .idx-line:hover .l-num { opacity: 1; }
+  .idx-line .l-name {
+    font-family: 'Newsreader', serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .idx-line .l-sub {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: .55;
+  }
+  .idx-line:hover .l-sub { opacity: .9; }
+  .idx-line .l-year {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: .5;
+    font-variant-numeric: tabular-nums;
+  }
+  .idx-line:hover .l-year { opacity: 1; }
+  .idx-line .l-arrow {
+    font-family: 'Newsreader', serif;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .25s, transform .35s;
+  }
+  .idx-line:hover .l-arrow { opacity: 1; transform: translateX(0); }
+
+  /* Variant C: horizontal film-strip */
+  .strip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding: 20px 4px 28px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .strip::-webkit-scrollbar { height: 2px; }
+  .strip-tile {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    cursor: pointer;
+  }
+  .strip-img {
+    aspect-ratio: 3/4;
+    background: #e8e6e1;
+    overflow: hidden;
+    position: relative;
+  }
+  .strip-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(10%);
+    transition: filter .4s, transform .6s;
+  }
+  .strip-tile:hover .strip-img img { filter: grayscale(0%); transform: scale(1.04); }
+  .strip-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .strip-caption .t {
+    font-family: 'Newsreader', serif;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  /* Panel footer */
+  .panel-foot {
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid #e5e5e5;
+  }
+  .panel-foot .lhs {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: .55;
+  }
+  .panel-foot .cta {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color .25s;
+  }
+  .panel-foot .cta:hover { border-color: #000; }
+
+  /* ====== LIGHTBOX (FLIP) ====== */
+  .lb-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 180;
+    background: rgba(255,255,255,0);
+    pointer-events: none;
+    transition: background .6s cubic-bezier(.77,0,.18,1);
+  }
+  .lb-overlay.open {
+    background: #ffffff;
+    pointer-events: auto;
+  }
+  .lb-stage {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 0;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .lb-overlay.open .lb-stage { opacity: 1; transition-delay: .25s; }
+  @media (max-width: 900px) {
+    .lb-stage { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  }
+
+  /* The FLIP image — starts as a fixed, positioned clone */
+  .lb-image-wrap {
+    position: relative;
+    padding: 48px 32px 48px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    overflow: hidden;
+  }
+  .lb-flyer {
+    position: fixed;
+    top: 0; left: 0;
+    will-change: transform, width, height;
+    overflow: hidden;
+    background: #eae7e1;
+    z-index: 190;
+    transition: transform .85s cubic-bezier(.77,0,.18,1),
+                width .85s cubic-bezier(.77,0,.18,1),
+                height .85s cubic-bezier(.77,0,.18,1),
+                border-radius .85s cubic-bezier(.77,0,.18,1);
+  }
+  .lb-flyer img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: filter .9s cubic-bezier(.2,.6,.2,1), transform 1.2s cubic-bezier(.2,.6,.2,1);
+    filter: grayscale(10%);
+  }
+  .lb-overlay.open .lb-flyer img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+
+  /* Right column — description */
+  .lb-desc {
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+  }
+  @media (max-width: 1100px) { .lb-desc { padding: 48px 40px; } }
+  .lb-desc .lb-stagger {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+  }
+  .lb-overlay.open .lb-desc .lb-stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(1) { transition-delay: .45s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(2) { transition-delay: .55s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(3) { transition-delay: .65s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(4) { transition-delay: .75s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(5) { transition-delay: .85s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(6) { transition-delay: .95s; }
+
+  .lb-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .5;
+  }
+  .lb-title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(48px, 5.5vw, 88px);
+    line-height: .95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .lb-title .italic {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .lb-rule {
+    height: 1px;
+    background: #000;
+    width: 80px;
+  }
+  .lb-body {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+    max-width: 560px;
+    opacity: .9;
+    font-weight: 300;
+  }
+  .lb-spec {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .lb-spec dt { opacity: .5; font-weight: 700; font-size: 9px; letter-spacing: 0.35em; }
+  .lb-spec dd { margin: 0; font-weight: 500; }
+
+  .lb-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .lb-btn {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 18px;
+    border: 1px solid #000;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+    transition: background .3s, color .3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .lb-btn:hover { background: #000; color: #fff; }
+  .lb-btn.primary { background: #000; color: #fff; }
+  .lb-btn.primary:hover { background: #fff; color: #000; }
+
+  /* Close */
+  .lb-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Newsreader', serif;
+    font-size: 22px;
+    opacity: 0;
+    transform: scale(.6) rotate(-45deg);
+    transition: opacity .35s ease, transform .5s cubic-bezier(.2,.6,.2,1), background .3s, color .3s;
+  }
+  .lb-overlay.open .lb-close {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    transition-delay: .5s;
+  }
+  .lb-close:hover { background: #000; color: #fff; }
+
+  /* Counter + category label */
+  .lb-chrome {
+    position: fixed;
+    top: 28px;
+    left: 32px;
+    display: flex;
+    gap: 24px;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity .5s ease;
+    z-index: 200;
+  }
+  .lb-overlay.open .lb-chrome { opacity: .7; transition-delay: .45s; }
+
+  .lb-nav {
+    position: fixed;
+    bottom: 28px;
+    right: 32px;
+    display: flex;
+    gap: 10px;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+  .lb-overlay.open .lb-nav { opacity: 1; transition-delay: .55s; }
+  .lb-nav button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    transition: background .25s, color .25s;
+  }
+  .lb-nav button:hover { background: #000; color: #fff; }
+
+  /* Source card fades while flying */
+  .card.is-source { opacity: 0; transition: opacity .2s; }
+
+  /* Lock body scroll when lightbox open */
+  body.lb-locked { overflow: hidden; }
+
+  /* ====== PRICING — shared ====== */
+  .pricing-variant { animation: pvIn .6s cubic-bezier(.2,.6,.2,1); }
+  @keyframes pvIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Variant A — Ledger */
+  .lg-rows { display: flex; flex-direction: column; }
+  .lg-head {
+    display: grid;
+    grid-template-columns: 60px 1.2fr 2fr 200px;
+    gap: 32px;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .lg-row {
+    display: grid;
+    grid-template-columns: 60px 1.2fr 2fr 200px;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid #e5e5e5;
+    transition: background .4s, color .4s, padding .4s cubic-bezier(.2,.6,.2,1);
+    cursor: pointer;
+  }
+  .lg-row:hover { background: #000; color: #fff; padding-left: 24px; padding-right: 24px; }
+  .lg-num { font-size: 10px; letter-spacing: 0.2em; opacity: .4; font-variant-numeric: tabular-nums; padding-top: 6px; }
+  .lg-row:hover .lg-num { opacity: 1; }
+  .lg-name { font-family: 'Newsreader', serif; font-size: 32px; line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; font-weight: 300; }
+  .lg-name em { font-style: italic; font-weight: 300; }
+  .lg-desc { font-size: 13px; line-height: 1.65; opacity: .7; max-width: 48ch; font-weight: 300; }
+  .lg-row:hover .lg-desc { opacity: .9; }
+  .lg-price { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .lg-price .amt { font-family: 'Newsreader', serif; font-size: 30px; font-style: italic; font-weight: 300; letter-spacing: -0.01em; line-height: 1; }
+  .lg-price .unit { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: .5; }
+  .lg-row:hover .lg-price .unit { opacity: 1; }
+
+  /* Variant B — Tonal cards */
+  .tonal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 1100px) { .tonal-grid { grid-template-columns: repeat(2, 1fr); } }
+  .tonal-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    transition: border-color .3s;
+    cursor: default;
+    min-height: 380px;
+  }
+  .tonal-card:hover { border-color: #000; }
+  .tonal-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: .6;
+  }
+  .tonal-label .dot { width: 3px; height: 3px; background: currentColor; display: inline-block; }
+  .tonal-title {
+    font-family: 'Newsreader', serif;
+    font-size: 30px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    margin-top: 4px;
+  }
+  .tonal-title em { font-style: italic; font-weight: 300; display: block; margin-top: 4px; font-size: 22px; opacity: .7; }
+  .tonal-desc { font-size: 12px; line-height: 1.65; opacity: .7; font-weight: 300; flex: 1; }
+  .tonal-rule { height: 1px; background: #000; opacity: .15; }
+  .tonal-price-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .tonal-price {
+    font-family: 'Newsreader', serif;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+  .tonal-unit { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: .5; }
+  .tonal-swatch {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 8px;
+    background: var(--tone);
+  }
+
+  .tonal-cta { display: none; }
+
+  /* ============ EXAMPLE REVEAL — three reveal styles ============ */
+  .ex-scrim {
+    position: fixed; inset: 0;
+    background: rgba(18,18,18,0);
+    z-index: 90;
+    pointer-events: none;
+    transition: background .5s ease;
+  }
+  .ex-scrim.is-open { background: rgba(18,18,18,.72); pointer-events: auto; }
+
+  /* Shared panel base */
+  .ex-panel {
+    position: fixed;
+    z-index: 100;
+    background: #0E0E0E;
+    color: #F5F2EC;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+    overflow: hidden;
+  }
+  .ex-panel.is-open { opacity: 1; pointer-events: auto; }
+
+  .ex-close {
+    position: absolute;
+    top: 24px; right: 28px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,242,236,.25);
+    background: transparent;
+    color: #F5F2EC;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .25s, border-color .25s, transform .25s;
+    z-index: 3;
+  }
+  .ex-close:hover { background: #F5F2EC; color: #0E0E0E; border-color: #F5F2EC; transform: rotate(90deg); }
+
+  .ex-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: .55;
+    font-weight: 700;
+  }
+  .ex-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 200;
+    line-height: .92;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+  }
+  .ex-title em { font-style: italic; font-weight: 300; opacity: .85; }
+  .ex-body {
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: .75;
+    font-weight: 300;
+    max-width: 42ch;
+  }
+  .ex-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+    border-top: 1px solid rgba(245,242,236,.15);
+    padding-top: 18px;
+  }
+  .ex-meta dt { font-size: 8px; letter-spacing: 0.4em; text-transform: uppercase; opacity: .45; font-weight: 700; margin-bottom: 4px; }
+  .ex-meta dd { font-size: 12px; opacity: .9; font-weight: 400; }
+  .ex-priceline {
+    display: flex; align-items: baseline; gap: 14px;
+    font-family: 'Newsreader', serif;
+  }
+  .ex-priceline .p { font-size: 44px; font-style: italic; font-weight: 300; letter-spacing: -0.02em; }
+  .ex-priceline .u { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; opacity: .5; font-family: 'Inter',sans-serif; }
+
+  .ex-img {
+    background: var(--tone, #333) center/cover no-repeat;
+    position: relative;
+  }
+  .ex-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 30% 20%, rgba(255,255,255,.08), transparent 55%),
+      linear-gradient(160deg, transparent 55%, rgba(0,0,0,.35));
+  }
+  .ex-img-caption {
+    position: absolute;
+    left: 24px; bottom: 20px; right: 24px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+    font-weight: 700;
+  }
+  .ex-img-caption .r { opacity: .6; font-weight: 400; }
+
+  /* ---------- Reveal A: Side sheet (right slide-in) ---------- */
+  .ex-panel.reveal-a {
+    top: 0; right: 0;
+    height: 100vh;
+    width: min(720px, 92vw);
+    transform: translateX(100%);
+    transition: transform .65s cubic-bezier(.2,.7,.2,1), opacity .3s;
+    display: grid;
+    grid-template-rows: 55vh 1fr;
+  }
+  .ex-panel.reveal-a.is-open { transform: translateX(0); opacity: 1; }
+  .ex-panel.reveal-a .ex-img { width: 100%; height: 100%; }
+  .ex-panel.reveal-a .ex-content {
+    padding: 40px 44px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    overflow-y: auto;
+  }
+  .ex-panel.reveal-a .ex-title { font-size: clamp(44px, 5vw, 68px); }
+
+  /* ---------- Reveal B: Full-bleed split, upward lift ---------- */
+  .ex-panel.reveal-b {
+    inset: 0;
+    transform: translateY(4%);
+    transition: transform .75s cubic-bezier(.2,.7,.2,1), opacity .35s;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .ex-panel.reveal-b.is-open { transform: translateY(0); }
+  .ex-panel.reveal-b .ex-img { width: 100%; height: 100%; }
+  .ex-panel.reveal-b .ex-content {
+    padding: clamp(40px, 7vh, 90px) clamp(40px, 6vw, 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    justify-content: center;
+    overflow-y: auto;
+  }
+  .ex-panel.reveal-b .ex-title { font-size: clamp(56px, 7vw, 104px); }
+  .ex-panel.reveal-b .ex-body { font-size: 15px; max-width: 48ch; }
+
+  /* ---------- Reveal C: Bottom drawer ---------- */
+  .ex-panel.reveal-c {
+    left: 0; right: 0; bottom: 0;
+    height: 78vh;
+    transform: translateY(100%);
+    transition: transform .65s cubic-bezier(.2,.7,.2,1), opacity .3s;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .ex-panel.reveal-c.is-open { transform: translateY(0); }
+  .ex-panel.reveal-c .ex-content {
+    padding: 48px 52px;
+    display: flex; flex-direction: column; gap: 26px;
+    justify-content: center;
+    border-right: 1px solid rgba(245,242,236,.12);
+  }
+  .ex-panel.reveal-c .ex-title { font-size: clamp(48px, 5.5vw, 80px); }
+  .ex-panel.reveal-c .ex-img { height: 100%; }
+
+  /* In-flight reveal polish: staggered children */
+  .ex-panel .ex-eyebrow,
+  .ex-panel .ex-title,
+  .ex-panel .ex-body,
+  .ex-panel .ex-priceline,
+  .ex-panel .ex-meta {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .ex-panel.is-open .ex-eyebrow { opacity: 1; transform: none; transition-delay: .25s; }
+  .ex-panel.is-open .ex-title   { opacity: 1; transform: none; transition-delay: .32s; }
+  .ex-panel.is-open .ex-body    { opacity: .75; transform: none; transition-delay: .42s; }
+  .ex-panel.is-open .ex-priceline { opacity: 1; transform: none; transition-delay: .5s; }
+  .ex-panel.is-open .ex-meta    { opacity: 1; transform: none; transition-delay: .58s; }
+
+  .ex-img::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--tone, #333);
+    transform-origin: var(--rev-origin, top);
+    transform: scaleY(1);
+    transition: transform .7s cubic-bezier(.8,.05,.2,1);
+    z-index: 1;
+  }
+  .ex-panel.is-open .ex-img::before { transform: scaleY(0); transition-delay: .1s; }
+
+  .reveal-choice-label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; opacity: .5; font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .ex-panel.reveal-b,
+    .ex-panel.reveal-c { grid-template-columns: 1fr; grid-template-rows: 45vh 1fr; }
+    .ex-panel.reveal-c { height: 92vh; }
+  }
+
+  /* Variant C — Scale */
+  .scale-wrap { }
+  .scale-axis {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: .5;
+    margin-bottom: 14px;
+  }
+  .scale-track { flex: 1; height: 1px; background: #000; opacity: .2; }
+  .scale-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    height: 320px;
+    align-items: end;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0;
+  }
+  .scale-step {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 16px 16px 0;
+    cursor: pointer;
+    height: 100%;
+    text-align: left;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: background .4s;
+  }
+  .scale-step:hover { background: #fafafa; }
+  .scale-step.active { background: #000; color: #fff; }
+  .scale-step .step-num {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    opacity: .4;
+    font-variant-numeric: tabular-nums;
+  }
+  .scale-step.active .step-num { opacity: 1; }
+  .scale-step .step-bar {
+    display: block;
+    height: var(--h);
+    background: currentColor;
+    opacity: .15;
+    margin-bottom: 14px;
+    transition: opacity .45s, transform .5s cubic-bezier(.2,.6,.2,1);
+    transform-origin: bottom;
+  }
+  .scale-step:hover .step-bar { opacity: .3; }
+  .scale-step.active .step-bar { opacity: .9; }
+  .scale-step .step-label {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 300;
+  }
+  .scale-step .step-label em { font-style: italic; font-weight: 300; opacity: .8; }
+  .scale-step .step-price {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 8px;
+  }
+  .scale-step .step-price span {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-left: 4px;
+  }
+
+  .scale-readout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    padding: 40px 0 0;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .scale-readout { grid-template-columns: 1fr; } }
+  .scale-rule { height: 1px; width: 80px; background: #000; margin: 18px 0; }
+  .scale-body {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 60ch;
+    opacity: .9;
+    transition: opacity .3s;
+  }
+  .scale-amount {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    padding-top: 6px;
+  }
+  .sc-price-amt {
+    font-family: 'Newsreader', serif;
+    font-size: 72px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .sc-price-unit {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: .5;
+  }
+  .scale-cta {
+    margin-top: 18px;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid #000;
+    padding: 12px 18px;
+    display: inline-flex;
+    gap: 10px;
+    transition: background .3s, color .3s;
+  }
+  .scale-cta:hover { background: #000; color: #fff; }
+
+  /* ====== TWEAKS PANEL ====== */
+  .tweaks-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 18px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    z-index: 200;
+    min-width: 280px;
+    display: none;
+  }
+  .tweaks-panel.on { display: block; }
+  .tweaks-panel h4 {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    opacity: .5;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding-bottom: 8px;
+  }
+  .tweaks-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .tweaks-row button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .tweaks-row button.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+  .tweaks-row button:hover:not(.active) { border-color: #fff; }
+  .tweaks-label {
+    opacity: .5;
+    font-size: 9px;
+    letter-spacing: .3em;
+    margin-bottom: 6px;
+    margin-top: 10px;
+  }
+  /* ============ CONTACT MODAL ============ */
+  .cm-overlay {
+    position: fixed; inset: 0; z-index: 400;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px;
+    background: rgba(14,13,12,0);
+    -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px);
+    opacity: 0; pointer-events: none;
+    transition: opacity .55s ease, background .7s ease, backdrop-filter .7s ease, -webkit-backdrop-filter .7s ease;
+  }
+  .cm-overlay.is-open {
+    opacity: 1; pointer-events: auto;
+    background: rgba(14,13,12,.5);
+    -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px);
+  }
+  .cm-card {
+    position: relative;
+    width: min(940px, 100%);
+    max-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    border: 1px solid #000;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(34px) scale(.985);
+    transition: opacity .6s ease .05s, transform .7s cubic-bezier(.16,1,.3,1) .05s;
+    box-shadow: 0 50px 110px -40px rgba(0,0,0,.55);
+  }
+  .cm-overlay.is-open .cm-card { opacity: 1; transform: none; }
+
+  .cm-left { background: #0e0d0c; color: #f5f2ec; padding: 56px 48px; display: flex; flex-direction: column; }
+  .cm-right { background: #fff; color: #000; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+  /* staggered reveal */
+  .cm-left > *, .cm-right > * { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .cm-overlay.is-open .cm-left > *, .cm-overlay.is-open .cm-right > * { opacity: 1; transform: none; }
+  .cm-overlay.is-open .cm-left  > *:nth-child(1) { transition-delay: .18s; }
+  .cm-overlay.is-open .cm-left  > *:nth-child(2) { transition-delay: .26s; }
+  .cm-overlay.is-open .cm-left  > *:nth-child(3) { transition-delay: .34s; }
+  .cm-overlay.is-open .cm-left  > *:nth-child(4) { transition-delay: .42s; }
+  .cm-overlay.is-open .cm-right > *:nth-child(1) { transition-delay: .30s; }
+  .cm-overlay.is-open .cm-right > *:nth-child(2) { transition-delay: .38s; }
+  .cm-overlay.is-open .cm-right > *:nth-child(3) { transition-delay: .46s; }
+  .cm-overlay.is-open .cm-right > *:nth-child(4) { transition-delay: .54s; }
+
+  .cm-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 700; opacity: .55; }
+  .cm-title { font-family: 'Newsreader', serif; font-weight: 200; font-size: clamp(40px, 4.4vw, 60px); line-height: .95; letter-spacing: -.03em; text-transform: uppercase; margin: 18px 0 0; }
+  .cm-title em { font-style: italic; font-weight: 300; display: block; opacity: .92; }
+  .cm-title::after { content: ""; display: block; width: 64px; height: 1px; background: #c8a25b; margin-top: 26px; }
+  .cm-lede { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.7; font-weight: 300; opacity: .72; margin: 26px 0 0; max-width: 34ch; }
+  .cm-channels { margin-top: auto; padding-top: 36px; display: flex; flex-direction: column; gap: 2px; }
+  .cm-channel { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 15px 0; border-top: 1px solid rgba(245,242,236,.16); text-decoration: none; color: #f5f2ec; transition: padding-left .35s cubic-bezier(.16,1,.3,1); }
+  .cm-channel:last-child { border-bottom: 1px solid rgba(245,242,236,.16); }
+  .cm-channel:hover { padding-left: 8px; }
+  .cm-channel__k { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; font-weight: 700; opacity: .5; }
+  .cm-channel__v { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.04em; font-weight: 500; opacity: .92; }
+
+  .cm-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+  .cm-label { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; font-weight: 700; opacity: .55; }
+  .cm-field input, .cm-field textarea {
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; color: #000;
+    border: none; border-bottom: 1px solid #cfcfcf; background: transparent;
+    padding: 6px 0; border-radius: 0; resize: none; transition: border-color .35s ease;
+  }
+  .cm-field input:focus, .cm-field textarea:focus { outline: none; border-bottom-color: #000; }
+  .cm-field input::placeholder, .cm-field textarea::placeholder { color: #b8b8b8; }
+  .cm-submit {
+    margin-top: 6px; align-self: flex-start;
+    font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700;
+    background: #000; color: #fff; border: 1px solid #000; cursor: pointer;
+    padding: 15px 30px; display: inline-flex; align-items: center; gap: 12px; white-space: nowrap;
+    transition: background .35s ease, color .35s ease, gap .35s ease;
+  }
+  .cm-submit:hover { background: #fff; color: #000; gap: 18px; }
+  .cm-submit span { transition: transform .35s ease; }
+  .cm-submit:hover span { transform: translateX(3px); }
+  .cm-note { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; color: #1f7a4d; margin: 18px 0 0; opacity: 1 !important; transform: none !important; }
+  .cm-close {
+    position: absolute; top: 16px; right: 16px; z-index: 4;
+    width: 40px; height: 40px; border-radius: 9999px;
+    background: transparent; border: 1px solid currentColor; color: #fff;
+    mix-blend-mode: difference;
+    cursor: pointer; font-size: 15px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .cm-close:hover { transform: rotate(90deg); }
+  @media (max-width: 760px) {
+    .cm-overlay { padding: 18px; }
+    .cm-card { grid-template-columns: 1fr; max-height: calc(100vh - 36px); overflow-y: auto; }
+    .cm-left { padding: 44px 30px 36px; }
+    .cm-right { padding: 36px 30px 44px; }
+    .cm-close { background: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cm-overlay, .cm-card, .cm-left > *, .cm-right > * { transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface">
+
+<!-- ============== NAV (universal pill toggle) ============== -->
+<nav class="tq-nav">
+  <div class="tq-nav__left">
+    <a href="Projects Menu.html"><img src="assets/logo.png" alt="Tabukas Qis"/></a>
+  </div>
+  <div class="tq-nav__center">
+    <div class="tq-toggle" id="tqToggle">
+      <span class="tq-toggle__pill" id="tqPill"></span>
+      <button data-key="tq" class="is-active">Tabukas Qis</button>
+      <button data-key="ewa" onclick="location.href='Ewa Podles.html'">Ewa Podle&#347;<span class="ewa-italic">painting</span></button>
+    </div>
+  </div>
+  <div class="tq-nav__right">
+    <a class="tq-contact" href="mailto:hello@tabukasqis.com">
+      <span class="arrow">↳</span>
+      <span class="word">say&nbsp;hello</span>
+      <span class="cursor"></span>
+    </a>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <section class="tq-hero" id="tqHero">
+    <div class="tq-hero__type">
+      <h1 class="tq-hero__word">Tabukas<em>Qis</em><span class="tq-hero__rule"></span></h1>
+      <p class="tq-hero__pull">Hand-painted murals, paintings and curated collections — crafted to resonate with rhythm, colour and quiet presence. Where art meets interior.</p>
+    </div>
+
+    <div class="tq-hero__stage">
+      <div class="tq-hero__art" id="tqArt">
+        <div class="tq-hero__frame tq-hero__frame--back">
+          <img alt="" src="assets/hero-alt.png"/>
+        </div>
+        <div class="tq-hero__frame">
+          <img class="tq-layer is-on" src="assets/hero.jpg" alt="Tabukas Qis studio"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SELECTED WORKS ============== -->
+  <section class="py-24 px-12 max-w-7xl mx-auto border-t border-outline-variant" id="works">
+    <div class="flex flex-col items-center mb-24 text-center">
+      <span class="roman-numeral">I</span>
+      <h2 class="section-title">Selected Works</h2>
+    </div>
+    <p class="text-center text-[10px] tracking-[0.35em] uppercase opacity-50 -mt-20 mb-16">
+</p>
+
+    <div id="projects" class="border-t border-outline-variant">
+
+      <!-- PROJECT 01: MURALS -->
+      <div class="proj" data-cat="murals" data-index="01">
+        <div class="proj-head">
+          <div class="proj-left">
+            <span class="proj-num">01</span>
+            <h3 class="proj-title">MURALS</h3>
+          </div>
+          <div class="proj-right">
+            <div class="proj-meta">
+              <div class="date">
+</div>
+              <div class="tag">
+</div>
+            </div>
+            <span class="chev">›</span>
+          </div>
+        </div>
+        <div class="proj-panel">
+          <div class="proj-panel-inner"></div>
+        </div>
+      </div>
+
+      <!-- PROJECT 02: PAINTINGS -->
+      <div class="proj" data-cat="paintings" data-index="02">
+        <div class="proj-head">
+          <div class="proj-left">
+            <span class="proj-num">02</span>
+            <h3 class="proj-title">PAINTINGS</h3>
+          </div>
+          <div class="proj-right">
+            <div class="proj-meta">
+              <div class="date">
+</div>
+              <div class="tag">
+</div>
+            </div>
+            <span class="chev">›</span>
+          </div>
+        </div>
+        <div class="proj-panel">
+          <div class="proj-panel-inner"></div>
+        </div>
+      </div>
+
+      <!-- PROJECT 03: INTERIORS -->
+      <div class="proj" data-cat="interiors" data-index="03">
+        <div class="proj-head">
+          <div class="proj-left">
+            <span class="proj-num">03</span>
+            <h3 class="proj-title">INTERIORS</h3>
+          </div>
+          <div class="proj-right">
+            <div class="proj-meta">
+              <div class="date">
+</div>
+              <div class="tag">
+</div>
+            </div>
+            <span class="chev">›</span>
+          </div>
+        </div>
+        <div class="proj-panel">
+          <div class="proj-panel-inner"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== SECTION II: ABOUT ============== -->
+  <section class="py-32 px-12 bg-[#fafafa]" id="about">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col items-center mb-24 text-center">
+        <span class="roman-numeral">II</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="grid grid-cols-12 gap-12 items-start">
+        <div class="col-span-12 md:col-span-4 relative">
+          <div class="w-full overflow-hidden border border-outline-variant rounded-full aspect-square bg-[#eae7e1]">
+            <img alt="Portrait of artist" class="w-full h-full object-cover aspect-square" src="assets/hero.jpg" style="filter: grayscale(40%);"/>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-7 md:col-start-6 pt-6">
+          <p class="serif-display leading-snug mb-16 text-xl">TABUKAS QIS is a contemporary art studio creating original murals, paintings and curated collections for interior spaces. We design with emotion and clarity – combining colour, form and intuition to bring depth and identity to residential and hospitality interiors. Our work is made for boutique hotels, private homes, restaurants and public spaces that value individuality and atmosphere. We collaborate with interior designers and architects worldwide, offering bespoke artworks tailored to each project's vision. Each piece is a quiet anchor – a presence that transforms space into experience.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2">Availability</h5>
+              <p class="text-xs leading-relaxed text-on-surface-variant">
+                We are currently accepting new projects for Q4 2024 and Q1 2025. We prioritize work in the art, culture, and high-fashion sectors.
+              </p>
+              <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2 mt-8">Contact</h5>
+              <p class="text-xs leading-relaxed text-on-surface-variant">
+                reach out via <a class="underline font-bold" href="#">email</a> or follow our process on <a class="underline font-bold" href="#">instagram</a>.
+              </p>
+            </div>
+            <div>
+              <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2">Links</h5>
+              <ul class="space-y-2">
+                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="#"><span class="w-1 h-1 bg-black rounded-full"></span> Instagram</a></li>
+                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="#"><span class="w-1 h-1 bg-black rounded-full"></span> LinkedIn</a></li>
+                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="#"><span class="w-1 h-1 bg-black rounded-full"></span> Savee.it</a></li>
+                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="#"><span class="w-1 h-1 bg-black rounded-full"></span> Resume</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-32 overflow-x-auto">
+        <h4 class="serif-display text-3xl uppercase mb-10 text-center">Recognition &amp; Honors</h4>
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-black text-[9px] uppercase tracking-[0.2em] font-bold">
+              <th class="py-3 px-4">Organization</th>
+              <th class="py-3 px-4">Recognition</th>
+              <th class="py-3 px-4">Project</th>
+              <th class="py-3 px-4"></th>
+            </tr>
+          </thead>
+          <tbody class="text-[10px] uppercase tracking-widest">
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">Awwwards</td><td class="py-4 px-4">Honorable Mention</td><td class="py-4 px-4">Frontier Label 2024</td><td class="py-4 px-4 text-right">↗</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">CSS Design Awards</td><td class="py-4 px-4">Special Kudos</td><td class="py-4 px-4">Silent Canvas Archive</td><td class="py-4 px-4 text-right">↗</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">FWA</td><td class="py-4 px-4">FWA of the Day</td><td class="py-4 px-4">Mono-01 Interface</td><td class="py-4 px-4 text-right">↗</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">SiteInspire</td><td class="py-4 px-4">Featured Site</td><td class="py-4 px-4">Tabukas Qis v1</td><td class="py-4 px-4 text-right">↗</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SECTION III: PRICING ============== -->
+  <section class="px-12 border-t border-outline-variant" id="pricing">
+    <div class="max-w-7xl mx-auto py-32">
+      <div class="flex flex-col items-center mb-24 text-center">
+        <span class="roman-numeral">III</span>
+        <h2 class="section-title">Pricing</h2>
+      </div>
+
+      <!-- === VARIANT A: LEDGER === -->
+      <div class="pricing-variant" data-pv="ledger">
+        <div class="flex items-end justify-between mb-12 border-b border-black pb-4">
+          <div>
+            <div class="text-[10px] tracking-[0.4em] uppercase opacity-50 font-bold mb-2">— Variant A</div>
+            <h3 class="serif-display text-5xl md:text-6xl uppercase leading-none">Price <span class="italic font-light">Ledger</span></h3>
+          </div>
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-60 max-w-sm text-right leading-relaxed">Pricing is based on four levels of artistic complexity — from subtle decorative finishes to fully bespoke hand-painted murals.</p>
+        </div>
+
+        <div class="lg-rows">
+          <!-- header row -->
+          <div class="lg-head">
+            <span>№</span>
+            <span>Service</span>
+            <span>Description</span>
+            <span class="text-right">Rate</span>
+          </div>
+
+          <div class="lg-row">
+            <span class="lg-num">01</span>
+            <span class="lg-name"><span>Standard</span> <em>painting</em></span>
+            <span class="lg-desc">Standard painting of walls or ceilings in a single colour, without decorative or artistic finishes. Paint supplied by client. Day rate — 8 hours.</span>
+            <span class="lg-price"><span class="amt">£250</span><span class="unit">per day</span></span>
+          </div>
+
+          <div class="lg-row">
+            <span class="lg-num">02</span>
+            <span class="lg-name"><span>Basic</span> <em>limewash · patina</em></span>
+            <span class="lg-desc">Decorative paint finishes such as limewash or soft patina effects. Subtle tonal variation, limited palette, and a material, architectural feel.</span>
+            <span class="lg-price"><span class="amt">£50—70</span><span class="unit">per m²</span></span>
+          </div>
+
+          <div class="lg-row">
+            <span class="lg-num">03</span>
+            <span class="lg-name"><span>Signature</span> <em>simple forms</em></span>
+            <span class="lg-desc">Bespoke decorative murals featuring simple geometric shapes or organic motifs. Custom composition and a strong, refined visual identity.</span>
+            <span class="lg-price"><span class="amt">£110—180</span><span class="unit">per m²</span></span>
+          </div>
+
+          <div class="lg-row">
+            <span class="lg-num">04</span>
+            <span class="lg-name"><span>Art piece</span> <em>detailed mural</em></span>
+            <span class="lg-desc">Fully bespoke, hand-painted works with high detail and layered composition. May incorporate gold, silver or copper leaf for depth and luminosity.</span>
+            <span class="lg-price"><span class="amt">£350—700</span><span class="unit">per m²</span></span>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-10 pt-6 border-t border-outline-variant">
+          <span class="text-[10px] tracking-[0.3em] uppercase opacity-50">All prices GBP · ex. VAT · travel additional</span>
+          <a class="text-[10px] tracking-[0.3em] uppercase font-bold border-b border-black pb-1 hover:opacity-60" href="#">Request a quote ↗</a>
+        </div>
+      </div>
+
+      <!-- === VARIANT B: TONAL CARDS === -->
+      <div class="pricing-variant" data-pv="tonal" style="display:none">
+        <div class="flex items-end justify-between mb-12 border-b border-black pb-4">
+          <div>
+            <div class="text-[10px] tracking-[0.4em] uppercase opacity-50 font-bold mb-2">
+</div>
+            <h3 class="serif-display text-5xl md:text-6xl uppercase leading-none">Tonal <span class="italic font-light">levels</span></h3>
+          </div>
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-60 max-w-sm text-right leading-relaxed">Four tiers of craftsmanship — each carrying its own colour, weight and surface quality.</p>
+        </div>
+
+        <div class="tonal-grid">
+          <article class="tonal-card" data-level="0" style="--tone:#F2F0EB; --ink:#1A1A1A;">
+            <div class="tonal-label"><span>
+</span><span class="dot"></span><span>
+</span></div>
+            <h4 class="tonal-title">Standard <em>painting</em></h4>
+            <p class="tonal-desc">Single-colour painting of walls or ceilings without decorative finishes. Paint supplied by the client. 8-hour day rate.</p>
+            <div class="tonal-rule"></div>
+            <div class="tonal-price-row"><span class="tonal-price">£250</span><span class="tonal-unit">per day</span></div>
+            <div class="tonal-swatch"></div>
+          </article>
+
+          <article class="tonal-card" data-level="1" style="--tone:#D1C2AD; --ink:#1A1A1A;">
+            <div class="tonal-label"><span>
+</span><span class="dot"></span><span>
+</span></div>
+            <h4 class="tonal-title">Basic <em>limewash · patina</em></h4>
+            <p class="tonal-desc">Decorative paint finishes — limewash, soft patina. Subtle tonal variation and a material, architectural feel for understated interiors.</p>
+            <div class="tonal-rule"></div>
+            <div class="tonal-price-row"><span class="tonal-price">£50—70</span><span class="tonal-unit">per m²</span></div>
+            <div class="tonal-swatch"></div>
+          </article>
+
+          <article class="tonal-card" data-level="2" style="--tone:#9B9382; --ink:#ffffff;">
+            <div class="tonal-label"><span>
+</span><span class="dot"></span><span>
+</span></div>
+            <h4 class="tonal-title">Signature <em>simple forms</em></h4>
+            <p class="tonal-desc">Bespoke decorative murals — simple geometric or organic motifs. Custom composition, refined palette, strong visual identity.</p>
+            <div class="tonal-rule"></div>
+            <div class="tonal-price-row"><span class="tonal-price">£110—180</span><span class="tonal-unit">per m²</span></div>
+            <div class="tonal-swatch"></div>
+          </article>
+
+          <article class="tonal-card" data-level="3" style="--tone:#A67C52; --ink:#ffffff;">
+            <div class="tonal-label"><span>
+</span><span class="dot"></span><span>
+</span></div>
+            <h4 class="tonal-title">Art piece <em>detailed mural</em></h4>
+            <p class="tonal-desc">Fully bespoke hand-painted works. Layered composition, landscapes, fine-art traditions. May incorporate gold, silver or copper leaf.</p>
+            <div class="tonal-rule"></div>
+            <div class="tonal-price-row"><span class="tonal-price">£350—700</span><span class="tonal-unit">per m²</span></div>
+            <div class="tonal-swatch"></div>
+          </article>
+        </div>
+
+        <div class="flex justify-between items-center mt-12 pt-6 border-t border-outline-variant">
+          <span class="text-[10px] tracking-[0.3em] uppercase opacity-50">
+</span>
+          <a class="text-[10px] tracking-[0.3em] uppercase font-bold border-b border-black pb-1 hover:opacity-60" href="#">Request a quote ↗</a>
+        </div>
+      </div>
+
+      <!-- === VARIANT C: STEPPED SCALE === -->
+      <div class="pricing-variant" data-pv="scale" style="display:none">
+        <div class="flex items-end justify-between mb-12 border-b border-black pb-4">
+          <div>
+            <div class="text-[10px] tracking-[0.4em] uppercase opacity-50 font-bold mb-2">— Variant C</div>
+            <h3 class="serif-display text-5xl md:text-6xl uppercase leading-none">A scale <span class="italic font-light">of craft</span></h3>
+          </div>
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-60 max-w-sm text-right leading-relaxed">From the simplest finish to the fully bespoke — hover a step to read more.</p>
+        </div>
+
+        <div class="scale-wrap">
+          <!-- axis -->
+          <div class="scale-axis">
+            <span>Simple finish</span>
+            <span class="scale-track"></span>
+            <span>Bespoke art</span>
+          </div>
+          <div class="scale-steps">
+            <button class="scale-step active" data-step="0" style="--h:32%">
+              <span class="step-num">01</span>
+              <span class="step-bar"></span>
+              <span class="step-label">Standard<br/><em>painting</em></span>
+              <span class="step-price">£250<span>/day</span></span>
+            </button>
+            <button class="scale-step" data-step="1" style="--h:48%">
+              <span class="step-num">02</span>
+              <span class="step-bar"></span>
+              <span class="step-label">Basic<br/><em>limewash</em></span>
+              <span class="step-price">£50—70<span>/m²</span></span>
+            </button>
+            <button class="scale-step" data-step="2" style="--h:72%">
+              <span class="step-num">03</span>
+              <span class="step-bar"></span>
+              <span class="step-label">Signature<br/><em>simple forms</em></span>
+              <span class="step-price">£110—180<span>/m²</span></span>
+            </button>
+            <button class="scale-step" data-step="3" style="--h:100%">
+              <span class="step-num">04</span>
+              <span class="step-bar"></span>
+              <span class="step-label">Art piece<br/><em>detailed mural</em></span>
+              <span class="step-price">£350—700<span>/m²</span></span>
+            </button>
+          </div>
+
+          <div class="scale-readout">
+            <div class="scale-meta">
+              <div class="text-[10px] tracking-[0.4em] uppercase opacity-50 font-bold mb-3" id="scEyebrow">Level 01 · Day rate</div>
+              <h4 class="serif-display text-4xl uppercase leading-none" id="scTitle">Standard <span class="italic font-light">painting</span></h4>
+              <div class="scale-rule"></div>
+              <p class="scale-body" id="scBody">Standard painting of walls or ceilings in a single colour, without decorative or artistic finishes. Paint supplied by client. Day rate — 8 hours.</p>
+            </div>
+            <div class="scale-amount">
+              <span class="sc-price-amt" id="scAmt">£250</span>
+              <span class="sc-price-unit" id="scUnit">per day</span>
+              <a class="scale-cta" href="#">Enquire <span>↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-12 pt-6 border-t border-outline-variant">
+          <span class="text-[10px] tracking-[0.3em] uppercase opacity-50">Use ← → to step through levels</span>
+          <a class="text-[10px] tracking-[0.3em] uppercase font-bold border-b border-black pb-1 hover:opacity-60" href="#">Request a quote ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-12 border-t border-outline-variant">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div class="flex flex-col gap-1">
+        <div class="serif-display italic text-xl">Tabukas Qis</div>
+        <div class="text-[9px] uppercase tracking-[0.3em] opacity-40">© 2024 — ALL RIGHTS RESERVED</div>
+      </div>
+      <div class="flex gap-12 text-[10px] uppercase tracking-[0.4em] font-bold">
+        <a class="hover:opacity-50" href="#">Instagram</a>
+        <a class="hover:opacity-50" href="#">Twitter / X</a>
+        <a class="hover:opacity-50" href="#">Savee</a>
+      </div>
+      <div class="text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">STAY IN MOTION</div>
+    </div>
+  </footer>
+</main>
+
+<!-- ============== LIGHTBOX ============== -->
+<div id="lbOverlay" class="lb-overlay" aria-hidden="true">
+  <div class="lb-chrome">
+    <span id="lbCat">— Murals</span>
+    <span id="lbCount">01 / 04</span>
+  </div>
+  <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
+  <div class="lb-stage">
+    <div class="lb-image-wrap">
+      <!-- flyer is inserted here when open, and absolutely positioned via FLIP -->
+    </div>
+    <div class="lb-desc" id="lbDesc">
+      <div class="lb-stagger lb-eyebrow" id="lbEyebrow">Murals · 01.01 / 2024</div>
+      <h2 class="lb-stagger lb-title" id="lbTitle">Atrium <span class="italic">Cloud</span></h2>
+      <div class="lb-stagger lb-rule"></div>
+      <p class="lb-stagger lb-body" id="lbBody">
+        A hand-painted mural composition rendered in a restrained palette of soft ochre, chalk and graphite. The work unfolds across the full height of the atrium wall — its rhythm shifting with the daylight that moves through the space.
+      </p>
+      <dl class="lb-stagger lb-spec" id="lbSpec">
+        <dt>Location</dt><dd id="lbLoc">Mayfair Residence</dd>
+        <dt>Medium</dt><dd>Limewash · Pigment · Gold leaf</dd>
+        <dt>Dimensions</dt><dd>4.2 × 3.6 m</dd>
+        <dt>Year</dt><dd id="lbYear">2024</dd>
+      </dl>
+      <div class="lb-stagger lb-actions">
+        <button class="lb-btn primary">Enquire <span>↗</span></button>
+        <button class="lb-btn" id="lbViewProcess">View process</button>
+      </div>
+    </div>
+  </div>
+  <div class="lb-nav">
+    <button id="lbPrev" aria-label="Previous">‹</button>
+    <button id="lbNext" aria-label="Next">›</button>
+  </div>
+</div>
+
+<!-- TWEAKS -->
+<div id="tweaksPanel" class="tweaks-panel">
+  <h4>Tweaks · Dropdown</h4>
+
+  <div class="tweaks-label">Layout</div>
+  <div class="tweaks-row" id="layoutRow">
+    <button data-layout="gallery" class="active">Gallery</button>
+    <button data-layout="index">Index</button>
+    <button data-layout="strip">Film-strip</button>
+  </div>
+
+  <div class="tweaks-label">Trigger</div>
+  <div class="tweaks-row" id="triggerRow">
+    <button data-trigger="click" class="active">Click</button>
+    <button data-trigger="hover">Hover</button>
+  </div>
+
+  <div class="tweaks-label">Single-open</div>
+  <div class="tweaks-row" id="singleRow">
+    <button data-single="true" class="active">One at a time</button>
+    <button data-single="false">Allow multiple</button>
+  </div>
+
+  <div class="tweaks-label">Pricing variant</div>
+  <div class="tweaks-row" id="pricingRow">
+    <button data-pricing="ledger" class="active">Ledger</button>
+    <button data-pricing="tonal">Tonal</button>
+    <button data-pricing="scale">Scale</button>
+  </div>
+</div>
+
+<script>
+/* ============ NAV TOGGLE PILL ============ */
+(function () {
+  const wrap = document.getElementById('tqToggle');
+  const pill = document.getElementById('tqPill');
+  if (!wrap || !pill) return;
+  const buttons = wrap.querySelectorAll('button');
+  function move(btn, animate = true) {
+    const r  = btn.getBoundingClientRect();
+    const wr = wrap.getBoundingClientRect();
+    pill.style.transition = animate ? '' : 'none';
+    pill.style.left  = (r.left - wr.left) + 'px';
+    pill.style.width = r.width + 'px';
+  }
+  requestAnimationFrame(() => {
+    const initial = wrap.querySelector('button.is-active') || buttons[0];
+    move(initial, false);
+  });
+  window.addEventListener('resize', () => {
+    const active = wrap.querySelector('button.is-active');
+    if (active) move(active, false);
+  });
+})();
+
+/* ================= TWEAKABLE DEFAULTS ================= */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "layout": "gallery",
+  "trigger": "click",
+  "single": true,
+  "pricing": "tonal"
+}/*EDITMODE-END*/;
+
+const state = { ...TWEAK_DEFAULTS };
+
+/* ================= PROJECT DATA ================= */
+const WORKS = {
+  murals: [
+    { t: "Garden Fountain",      y: "2024", place: "Private Residence",      img: "assets/murals/mural-01.png", medium: "Hand-painted · Mineral pigment", dims: "3.6 × 2.8 m",
+      desc: "A Pompeian-inspired garden mural built around a scalloped stone fountain. Doves and songbirds gather in deep, layered foliage — the whole wall worked in soft mineral greens." },
+    { t: "Garden of Birds",      y: "2024", place: "Hallway Commission",     img: "assets/murals/mural-02.png", medium: "Hand-painted · Tempera",         dims: "4.0 × 2.6 m",
+      desc: "An ambient botanical scene alive with doves and a single rufous bird. Branches, ferns and a low fountain are treated with equal, unhurried attention." },
+    { t: "Rufous Songbird",      y: "2025", place: "Detail study",           img: "assets/murals/mural-03.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+      desc: "A close study from a larger garden scheme — a single rufous bird painted against muted sage foliage, every feather rendered by hand." },
+    { t: "Twilight Woodland",    y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-04.png", medium: "Hand-painted · Patina glaze",    dims: "2.4 × 2.6 m",
+      desc: "An atmospheric woodland at dusk, painted behind a carved stone basin. Layered glazes hold the quiet, smoke-toned light of the forest interior." },
+    { t: "Owls in the Aspens",   y: "2024", place: "Private Residence",      img: "assets/murals/mural-05.png", medium: "Hand-painted · Copper leaf",     dims: "3.2 × 2.7 m",
+      desc: "A pair of owls perched among slender aspens, set against a warm copper-leaf ground that catches and shifts with the light through the day." },
+    { t: "Bathers",              y: "2023", place: "Bathroom Commission",    img: "assets/murals/mural-06.png", medium: "Hand-painted · Mineral paint",   dims: "2.6 × 2.2 m",
+      desc: "A figurative bathing scene in muted blues for an interior bathroom — classical in feeling, quiet and tonal in execution." },
+    { t: "Pomegranate Chinoiserie", y: "2024", place: "Drawing Room",        img: "assets/murals/mural-07.png", medium: "Hand-painted · Tempera",         dims: "3.8 × 2.9 m",
+      desc: "A chinoiserie scheme of flowering branches, pomegranates and trailing botanicals, painted across a full reception wall in warm chalk tones." },
+    { t: "Bee-eaters & Blossom", y: "2025", place: "Canvas Commission",      img: "assets/murals/mural-08.png", medium: "Hand-painted on canvas",         dims: "1.6 × 1.6 m",
+      desc: "Two golden bee-eaters at rest on a cherry-blossom branch, against a soft turquoise field. Painted as a free-standing canvas for a bedroom wall." },
+    { t: "Blossom Headboard",    y: "2025", place: "Hospitality, installed", img: "assets/murals/mural-09.png", medium: "Hand-painted on canvas",         dims: "Installed view",
+      desc: "The blossom-and-bee-eater canvas in situ above a bed, beneath an arched ceiling — the turquoise ground answering the room's cool light." },
+    { t: "Poolside",             y: "2024", place: "Interior Commission",    img: "assets/murals/mural-10.png", medium: "Hand-painted · Mixed media",     dims: "2.2 × 1.7 m",
+      desc: "A modern figurative composition — a bather in red against blocked geometric colour — installed in a poured-concrete interior." },
+    { t: "Pool Garden",          y: "2025", place: "Outdoor Commission",     img: "assets/murals/mural-11.png", medium: "Exterior mural · UV pigment",    dims: "5.0 × 2.5 m",
+      desc: "An outdoor mural bringing calm and figure to a poolside courtyard — proof that a painted wall belongs to gardens and terraces as much as to rooms." },
+    { t: "Spring Branches",      y: "2024", place: "Sitting Room",           img: "assets/murals/mural-12.png", medium: "Hand-painted · Pigment",         dims: "4.2 × 2.7 m",
+      desc: "Flowering branches and small birds scattered lightly across a warm plaster wall — a softer, more open take on the chinoiserie tradition." },
+    { t: "Gold Leaf Study",      y: "2025", place: "Studio process",         img: "assets/murals/mural-13.png", medium: "Pigment · 24ct gold leaf",       dims: "Detail",
+      desc: "A process detail — gold leaf laid by hand into a painted leaf, the gilding catching against deep botanical greens." },
+    { t: "The Bullfinch",        y: "2025", place: "Magnolia Commission",    img: "assets/murals/mural-14.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+      desc: "A bullfinch on a branch among magnolia, painted against a soft taupe ground — a single bird study from a larger blossom wall." },
+    { t: "Magnolia Room",        y: "2025", place: "Bedroom, installed",     img: "assets/murals/mural-15.png", medium: "Hand-painted · Pigment",         dims: "Installed view",
+      desc: "A magnolia and blossom tree spreading across a bedroom wall, drawn into the corner of the room and answered by the light from the window." },
+    { t: "Magnolia & Birds",     y: "2025", place: "Bedroom Commission",     img: "assets/murals/mural-16.png", medium: "Hand-painted · Pigment",         dims: "4.6 × 2.8 m",
+      desc: "A full-wall magnolia tree in bloom, with brightly coloured birds — jays, bee-eaters and finches — perched throughout the branches." },
+    { t: "Two Owls, Copper",     y: "2024", place: "Panel Commission",       img: "assets/murals/mural-17.png", medium: "Hand-painted · Copper leaf",     dims: "1.8 × 2.4 m",
+      desc: "Two owls nestled among birch trunks on a luminous copper-leaf ground — a quieter, more graphic companion to the aspen mural." },
+    { t: "White-eye & Magnolia", y: "2026", place: "Magnolia Commission",    img: "assets/murals/mural-18.png", medium: "Hand-painted · Pigment",         dims: "Detail",
+      desc: "A small white-eye perched among blossom and a single open magnolia, painted with fine detail against a warm, chalky ground." },
+  ],
+  paintings: [
+    { t: "Study No. 04",       y: "2023", place: "Oil on linen",   img: "assets/hero-alt.png", medium: "Oil on linen",                   dims: "120 × 90 cm",
+      desc: "A tonal study exploring the relationship between weight and light. Part of an ongoing series of interior observations." },
+    { t: "Quiet Blue",         y: "2024", place: "Oil on panel",   img: "assets/hero.jpg",     medium: "Oil on gessoed panel",           dims: "80 × 60 cm",
+      desc: "A meditative composition in ultramarine and bone white. The surface is built slowly, through many thin layers, toward a quiet depth." },
+    { t: "Ochre Interior",     y: "2024", place: "Mixed media",    img: "assets/hero-alt.png", medium: "Mixed media on canvas",          dims: "150 × 110 cm",
+      desc: "A domestic interior reduced to its tonal essentials — ochre, umber, and the pale stone of an unseen window." },
+    { t: "Evening Composition",y: "2025", place: "Oil on linen",   img: "assets/hero.jpg",     medium: "Oil on linen",                   dims: "200 × 140 cm",
+      desc: "A large-format evening piece painted over several months. Colour gathers in the lower half of the canvas, the way light does in a room at dusk." },
+  ],
+  interiors: [
+    { t: "Shoreditch Loft",    y: "2024", place: "Residential",    img: "assets/hero.jpg",     medium: "Full-space curation",            dims: "180 m²",
+      desc: "A complete visual programme for a converted warehouse — commissioned murals, selected paintings and a palette of quiet, architectural finishes." },
+    { t: "Coast House",        y: "2025", place: "Holiday home",   img: "assets/hero-alt.png", medium: "Curated collection",             dims: "260 m²",
+      desc: "A coastal residence set to a restrained palette of limestone, salt and weathered timber. Works respond directly to the horizon and the light of the estuary." },
+    { t: "Studio Belgravia",   y: "2025", place: "Office",         img: "assets/hero.jpg",     medium: "Commission & curation",          dims: "420 m²",
+      desc: "A workplace scheme for a design studio — three commissioned murals anchor the main floor, supported by a rotating selection of works on paper." },
+    { t: "Nordic Retreat",     y: "2026", place: "Hospitality",    img: "assets/hero-alt.png", medium: "Hospitality curation",           dims: "780 m²",
+      desc: "A boutique hotel project realised in collaboration with the architects. Each room receives a single work, chosen for its relationship to the view beyond the window." },
+  ],
+};
+
+/* ================= RENDER PANEL CONTENT ================= */
+function renderPanel(proj) {
+  const cat = proj.dataset.cat;
+  const idx = proj.dataset.index;
+  const works = WORKS[cat];
+  const inner = proj.querySelector(".proj-panel-inner");
+  let body = "";
+
+  if (state.layout === "gallery") {
+    body = `
+      <div class="gallery">
+        ${works.map((w, i) => `
+          <a class="card" href="#" data-cat="${cat}" data-idx="${i}">
+            <div class="card-img"><img src="${w.img}" alt="${w.t}"/></div>
+            <div class="card-meta">
+              <div>
+                <div class="card-title">${w.t}</div>
+                <div class="card-sub">${w.place}</div>
+              </div>
+              <span class="card-index">${idx}.${String(i+1).padStart(2,'0')} / ${w.y}</span>
+            </div>
+          </a>
+        `).join("")}
+      </div>
+    `;
+  } else if (state.layout === "index") {
+    body = `
+      <div class="idx-list">
+        ${works.map((w, i) => `
+          <a class="idx-line" href="#">
+            <span class="l-num">${idx}.${String(i+1).padStart(2,'0')}</span>
+            <span class="l-name">${w.t}</span>
+            <span class="l-sub">${w.place}</span>
+            <span class="l-year">${w.y}</span>
+            <span class="l-arrow">↗</span>
+          </a>
+        `).join("")}
+      </div>
+    `;
+  } else if (state.layout === "strip") {
+    body = `
+      <div class="strip">
+        ${works.map((w, i) => `
+          <a class="strip-tile" href="#">
+            <div class="strip-img"><img src="${w.img}" alt="${w.t}"/></div>
+            <div class="strip-caption">
+              <span class="t">${w.t}</span>
+              <span style="opacity:.5">${idx}.${String(i+1).padStart(2,'0')} · ${w.y}</span>
+            </div>
+          </a>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  inner.innerHTML = `
+    ${body}
+    <div class="panel-foot">
+      <span class="lhs">${works.length} works · ${cat}</span>
+      <a class="cta" href="#">View full category <span>→</span></a>
+    </div>
+  `;
+}
+
+/* ================= OPEN / CLOSE ================= */
+const projs = document.querySelectorAll(".proj");
+
+function openProj(p) {
+  if (state.single) {
+    projs.forEach(x => { if (x !== p) x.classList.remove("open"); });
+  }
+  // (Re)render content when opening so layout changes take effect
+  renderPanel(p);
+  p.classList.add("open");
+}
+function closeProj(p) { p.classList.remove("open"); }
+function toggleProj(p) {
+  p.classList.contains("open") ? closeProj(p) : openProj(p);
+}
+
+function bindTriggers() {
+  projs.forEach(p => {
+    const head = p.querySelector(".proj-head");
+    // fresh clone to drop existing handlers
+    const clone = head.cloneNode(true);
+    head.parentNode.replaceChild(clone, head);
+
+    if (state.trigger === "click") {
+      clone.addEventListener("click", () => toggleProj(p));
+    } else {
+      p.addEventListener("mouseenter", () => openProj(p));
+      p.addEventListener("mouseleave", () => closeProj(p));
+      // clicking still navigates on hover mode
+      clone.addEventListener("click", (e) => { e.preventDefault(); });
+    }
+  });
+}
+
+/* ================= TWEAKS ================= */
+const tweaksPanel = document.getElementById("tweaksPanel");
+
+function applyLayout(v) {
+  state.layout = v;
+  document.querySelectorAll("#layoutRow button").forEach(b => {
+    b.classList.toggle("active", b.dataset.layout === v);
+  });
+  // re-render any currently open panel
+  projs.forEach(p => { if (p.classList.contains("open")) renderPanel(p); });
+}
+function applyTrigger(v) {
+  state.trigger = v;
+  document.querySelectorAll("#triggerRow button").forEach(b => {
+    b.classList.toggle("active", b.dataset.trigger === v);
+  });
+  bindTriggers();
+}
+function applySingle(v) {
+  state.single = (v === true || v === "true");
+  document.querySelectorAll("#singleRow button").forEach(b => {
+    b.classList.toggle("active", String(b.dataset.single) === String(state.single));
+  });
+}
+
+function applyPricing(v) {
+  state.pricing = v;
+  document.querySelectorAll(".pricing-variant").forEach(el => {
+    el.style.display = (el.dataset.pv === v) ? "" : "none";
+  });
+  document.querySelectorAll("#pricingRow button").forEach(b => {
+    b.classList.toggle("active", b.dataset.pricing === v);
+  });
+}
+
+document.querySelectorAll("#layoutRow button").forEach(b => {
+  b.addEventListener("click", () => { applyLayout(b.dataset.layout); persist({ layout: b.dataset.layout }); });
+});
+document.querySelectorAll("#triggerRow button").forEach(b => {
+  b.addEventListener("click", () => { applyTrigger(b.dataset.trigger); persist({ trigger: b.dataset.trigger }); });
+});
+document.querySelectorAll("#singleRow button").forEach(b => {
+  b.addEventListener("click", () => { applySingle(b.dataset.single); persist({ single: b.dataset.single === "true" }); });
+});
+document.querySelectorAll("#pricingRow button").forEach(b => {
+  b.addEventListener("click", () => { applyPricing(b.dataset.pricing); persist({ pricing: b.dataset.pricing }); });
+});
+
+function persist(edits) {
+  try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits }, "*"); } catch (_) {}
+}
+
+window.addEventListener("message", (e) => {
+  const d = e.data || {};
+  if (d.type === "__activate_edit_mode") tweaksPanel.classList.add("on");
+  if (d.type === "__deactivate_edit_mode") tweaksPanel.classList.remove("on");
+});
+window.parent.postMessage({ type: "__edit_mode_available" }, "*");
+
+/* ================= INIT ================= */
+applyLayout(state.layout);
+applyTrigger(state.trigger);
+applySingle(state.single);
+applyPricing(state.pricing || "ledger");
+
+/* ================= PRICING VARIANT C — scale interactions ================= */
+const SC_DATA = [
+  { eyebrow: "Level 01 · Day rate",   title: 'Standard <span class="italic font-light">painting</span>',           body: "Standard painting of walls or ceilings in a single colour, without decorative or artistic finishes. Paint supplied by client. Day rate — 8 hours.", amt: "£250",     unit: "per day" },
+  { eyebrow: "Level 02 · By surface", title: 'Basic <span class="italic font-light">limewash · patina</span>',     body: "Decorative paint finishes such as limewash or soft patina effects. Subtle tonal variation, limited palette, and a material, architectural feel.",     amt: "£50—70",  unit: "per m²" },
+  { eyebrow: "Level 03 · By surface", title: 'Signature <span class="italic font-light">simple forms</span>',      body: "Bespoke decorative murals featuring simple geometric shapes or organic motifs. Custom composition and a strong, refined visual identity.",            amt: "£110—180", unit: "per m²" },
+  { eyebrow: "Level 04 · By surface", title: 'Art piece <span class="italic font-light">detailed mural</span>',    body: "Fully bespoke, hand-painted works with high detail and layered composition. May incorporate gold, silver or copper leaf for depth and luminosity.",  amt: "£350—700", unit: "per m²" },
+];
+const scEyebrow = document.getElementById("scEyebrow");
+const scTitle   = document.getElementById("scTitle");
+const scBody    = document.getElementById("scBody");
+const scAmt     = document.getElementById("scAmt");
+const scUnit    = document.getElementById("scUnit");
+function setScaleStep(i) {
+  document.querySelectorAll(".scale-step").forEach(b => b.classList.toggle("active", parseInt(b.dataset.step,10) === i));
+  const d = SC_DATA[i];
+  [scEyebrow, scTitle, scBody, scAmt, scUnit].forEach(el => { el.style.transition = "opacity .2s"; el.style.opacity = "0"; });
+  setTimeout(() => {
+    scEyebrow.textContent = d.eyebrow;
+    scTitle.innerHTML = d.title;
+    scBody.textContent = d.body;
+    scAmt.textContent = d.amt;
+    scUnit.textContent = d.unit;
+    [scEyebrow, scTitle, scBody, scAmt, scUnit].forEach(el => { el.style.opacity = "1"; });
+  }, 180);
+}
+document.querySelectorAll(".scale-step").forEach(b => {
+  b.addEventListener("click", () => setScaleStep(parseInt(b.dataset.step,10)));
+  b.addEventListener("mouseenter", () => setScaleStep(parseInt(b.dataset.step,10)));
+});
+document.addEventListener("keydown", (e) => {
+  if (state.pricing !== "scale") return;
+  const active = document.querySelector(".scale-step.active");
+  if (!active) return;
+  let i = parseInt(active.dataset.step, 10);
+  if (e.key === "ArrowRight") setScaleStep(Math.min(3, i+1));
+  if (e.key === "ArrowLeft")  setScaleStep(Math.max(0, i-1));
+});
+
+// Panels start closed on load
+
+/* ================= LIGHTBOX (FLIP animation) ================= */
+const lbOverlay = document.getElementById("lbOverlay");
+const lbClose   = document.getElementById("lbClose");
+const lbImgWrap = lbOverlay.querySelector(".lb-image-wrap");
+const lbCat     = document.getElementById("lbCat");
+const lbCount   = document.getElementById("lbCount");
+const lbEyebrow = document.getElementById("lbEyebrow");
+const lbTitle   = document.getElementById("lbTitle");
+const lbBody    = document.getElementById("lbBody");
+const lbLoc     = document.getElementById("lbLoc");
+const lbYear    = document.getElementById("lbYear");
+const lbSpec    = document.getElementById("lbSpec");
+const lbPrev    = document.getElementById("lbPrev");
+const lbNext    = document.getElementById("lbNext");
+
+let lbState = { cat: null, idx: 0, flyer: null, sourceCard: null };
+
+function splitTitle(t) {
+  // Italicize the last word for the stylized display title
+  const parts = t.split(" ");
+  if (parts.length < 2) return t;
+  const last = parts.pop();
+  return `${parts.join(" ")} <span class="italic">${last}</span>`;
+}
+
+function fillDescription(cat, idx) {
+  const works = WORKS[cat];
+  const w = works[idx];
+  const catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
+  const catIdx = cat === "murals" ? "01" : cat === "paintings" ? "02" : "03";
+  lbCat.textContent   = `— ${catLabel}`;
+  lbCount.textContent = `${String(idx+1).padStart(2,'0')} / ${String(works.length).padStart(2,'0')}`;
+  lbEyebrow.textContent = `${catLabel} · ${catIdx}.${String(idx+1).padStart(2,'0')} / ${w.y}`;
+  lbTitle.innerHTML = splitTitle(w.t);
+  lbBody.textContent = w.desc;
+  lbSpec.innerHTML = `
+    <dt>Location</dt><dd>${w.place}</dd>
+    <dt>Medium</dt><dd>${w.medium}</dd>
+    <dt>Dimensions</dt><dd>${w.dims}</dd>
+    <dt>Year</dt><dd>${w.y}</dd>
+  `;
+}
+
+function getTargetRect() {
+  // Compute the rect for the image pane in the open state
+  const r = lbImgWrap.getBoundingClientRect();
+  // Inner padding: 48px 32px 48px 48px — respect it
+  const pad = { t: 48, r: 32, b: 48, l: 48 };
+  const w = r.width - pad.l - pad.r;
+  const h = r.height - pad.t - pad.b;
+  // Maintain 4:5 aspect
+  const ar = 4 / 5;
+  let fw = w, fh = w / ar;
+  if (fh > h) { fh = h; fw = h * ar; }
+  const left = r.left + pad.l + (w - fw) / 2;
+  const top  = r.top  + pad.t + (h - fh) / 2;
+  return { left, top, width: fw, height: fh };
+}
+
+function openLightbox(card) {
+  const cat = card.dataset.cat;
+  const idx = parseInt(card.dataset.idx, 10);
+  const img = card.querySelector("img");
+  const srcRect = card.querySelector(".card-img").getBoundingClientRect();
+
+  lbState.cat = cat;
+  lbState.idx = idx;
+  lbState.sourceCard = card;
+
+  // Fill description first (so layout is measured correctly)
+  fillDescription(cat, idx);
+
+  // Build flyer at the source position
+  const flyer = document.createElement("div");
+  flyer.className = "lb-flyer";
+  flyer.innerHTML = `<img src="${img.src}" alt=""/>`;
+  flyer.style.left = "0px";
+  flyer.style.top = "0px";
+  flyer.style.width = srcRect.width + "px";
+  flyer.style.height = srcRect.height + "px";
+  flyer.style.transform = `translate3d(${srcRect.left}px, ${srcRect.top}px, 0)`;
+  document.body.appendChild(flyer);
+  lbState.flyer = flyer;
+
+  // Hide source card
+  card.classList.add("is-source");
+  document.body.classList.add("lb-locked");
+
+  // Open overlay (this renders the right panel, etc.)
+  lbOverlay.classList.add("open");
+
+  // Next frame: measure destination + animate
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const dst = getTargetRect();
+      flyer.style.transform = `translate3d(${dst.left}px, ${dst.top}px, 0)`;
+      flyer.style.width = dst.width + "px";
+      flyer.style.height = dst.height + "px";
+    });
+  });
+}
+
+function closeLightbox() {
+  if (!lbState.flyer) return;
+  const card = lbState.sourceCard;
+  const srcRect = card.querySelector(".card-img").getBoundingClientRect();
+
+  // Animate flyer back to source
+  lbState.flyer.style.transform = `translate3d(${srcRect.left}px, ${srcRect.top}px, 0)`;
+  lbState.flyer.style.width = srcRect.width + "px";
+  lbState.flyer.style.height = srcRect.height + "px";
+
+  // Fade description / overlay
+  lbOverlay.classList.remove("open");
+
+  const flyer = lbState.flyer;
+  const handleEnd = () => {
+    flyer.removeEventListener("transitionend", handleEnd);
+    flyer.remove();
+    card.classList.remove("is-source");
+    document.body.classList.remove("lb-locked");
+    lbState = { cat: null, idx: 0, flyer: null, sourceCard: null };
+  };
+  flyer.addEventListener("transitionend", handleEnd);
+  // safety
+  setTimeout(() => { if (lbState.flyer === flyer) handleEnd(); }, 1100);
+}
+
+function navigate(delta) {
+  const cat = lbState.cat;
+  const works = WORKS[cat];
+  const nextIdx = (lbState.idx + delta + works.length) % works.length;
+  // Swap image + text with a short crossfade via the flyer's img
+  const img = lbState.flyer.querySelector("img");
+  img.style.opacity = "0";
+  img.style.transition = "opacity .35s ease";
+  setTimeout(() => {
+    img.src = works[nextIdx].img;
+    img.onload = () => { img.style.opacity = "1"; };
+  }, 180);
+  // Stagger text out/in
+  const desc = document.getElementById("lbDesc");
+  desc.querySelectorAll(".lb-stagger").forEach(el => {
+    el.style.transition = "opacity .3s ease, transform .35s cubic-bezier(.2,.6,.2,1)";
+    el.style.opacity = "0";
+    el.style.transform = "translateY(10px)";
+  });
+  setTimeout(() => {
+    lbState.idx = nextIdx;
+    fillDescription(cat, nextIdx);
+    desc.querySelectorAll(".lb-stagger").forEach((el, i) => {
+      setTimeout(() => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }, 40 + i * 70);
+    });
+    // Update source card for correct close animation
+    const newCard = document.querySelector(`.card[data-cat="${cat}"][data-idx="${nextIdx}"]`);
+    if (newCard) {
+      lbState.sourceCard.classList.remove("is-source");
+      lbState.sourceCard = newCard;
+      newCard.classList.add("is-source");
+    }
+  }, 280);
+}
+
+// Delegated click on cards (they're re-rendered)
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".card");
+  if (card) {
+    e.preventDefault();
+    openLightbox(card);
+  }
+});
+
+lbClose.addEventListener("click", closeLightbox);
+lbOverlay.addEventListener("click", (e) => {
+  // click on empty area of overlay (not stage / chrome) closes
+  if (e.target === lbOverlay) closeLightbox();
+});
+document.addEventListener("keydown", (e) => {
+  if (!lbState.flyer) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") navigate(1);
+  if (e.key === "ArrowLeft") navigate(-1);
+});
+lbPrev.addEventListener("click", () => navigate(-1));
+lbNext.addEventListener("click", () => navigate(1));
+
+// Keep flyer aligned on resize
+window.addEventListener("resize", () => {
+  if (!lbState.flyer || !lbOverlay.classList.contains("open")) return;
+  const dst = getTargetRect();
+  lbState.flyer.style.transition = "none";
+  lbState.flyer.style.transform = `translate3d(${dst.left}px, ${dst.top}px, 0)`;
+  lbState.flyer.style.width = dst.width + "px";
+  lbState.flyer.style.height = dst.height + "px";
+  requestAnimationFrame(() => {
+    lbState.flyer.style.transition = "";
+  });
+});
+
+/* ================= HERO — interactive discipline navigator ================= */
+(function () {
+  const hero = document.getElementById('tqHero');
+  const art  = document.getElementById('tqArt');
+  if (!hero || !art) return;
+
+  // subtle mouse parallax / 3D tilt
+  let raf = null;
+  hero.addEventListener('mousemove', (e) => {
+    if (window.innerWidth < 900) return;
+    const r = art.getBoundingClientRect();
+    const px = (e.clientX - (r.left + r.width / 2)) / r.width;
+    const py = (e.clientY - (r.top + r.height / 2)) / r.height;
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      art.style.transform = `rotateY(${px * 4.5}deg) rotateX(${-py * 4.5}deg)`;
+    });
+  });
+  hero.addEventListener('mouseleave', () => { art.style.transform = 'rotateY(0) rotateX(0)'; });
+})();
+</script>
+<!-- =================== CONTACT MODAL =================== -->
+<div class="cm-overlay" id="contactModal" aria-hidden="true">
+  <div class="cm-card" role="dialog" aria-modal="true" aria-label="Contact the studio">
+    <button class="cm-close" id="cmClose" aria-label="Close">&#10005;</button>
+    <div class="cm-left">
+      <span class="cm-eyebrow">Get in touch</span>
+      <h2 class="cm-title">Let's make<em>something</em></h2>
+      <p class="cm-lede">Commissions, prints and studio enquiries. Tell us a little about your space or the work you have in mind — we read and reply to every message.</p>
+      <div class="cm-channels">
+        <a class="cm-channel" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener">
+          <span class="cm-channel__k">Instagram</span>
+          <span class="cm-channel__v">@tabukasqis&nbsp;↗</span>
+        </a>
+        <a class="cm-channel" href="mailto:hello@tabukasqis.com">
+          <span class="cm-channel__k">Email</span>
+          <span class="cm-channel__v">hello@tabukasqis.com&nbsp;↗</span>
+        </a>
+      </div>
+    </div>
+    <form class="cm-right" id="cmForm" novalidate>
+      <label class="cm-field">
+        <span class="cm-label">Name</span>
+        <input type="text" name="name" required autocomplete="name"/>
+      </label>
+      <label class="cm-field">
+        <span class="cm-label">Email</span>
+        <input type="email" name="email" required autocomplete="email"/>
+      </label>
+      <label class="cm-field">
+        <span class="cm-label">Message</span>
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="cm-submit">Send message <span>&#8594;</span></button>
+      <p class="cm-note" id="cmNote" hidden>Thank you — opening your email client to send.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ============ CONTACT MODAL ============ */
+(function () {
+  const modal = document.getElementById('contactModal');
+  if (!modal) return;
+  const form = document.getElementById('cmForm');
+  const note = document.getElementById('cmNote');
+  const closeBtn = document.getElementById('cmClose');
+  let lastFocus = null;
+
+  function open(e) {
+    if (e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => { const f = form.querySelector('input'); if (f) f.focus(); }, 480);
+  }
+  function close() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  window.openContact = open;
+  window.closeContact = close;
+
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+
+  /* Wire every enquiry / contact trigger to the modal */
+  const SELECTOR = '.tq-contact, .scale-cta, .lb-btn.primary, .splb-enquire, .pclb-enquire, [data-contact-open]';
+  const wired = new WeakSet();
+  function wire(el) {
+    if (wired.has(el)) return;
+    wired.add(el);
+    el.addEventListener('click', open);
+  }
+  document.querySelectorAll(SELECTOR).forEach(wire);
+  document.querySelectorAll('a, button').forEach((el) => {
+    if (el.closest('#contactModal')) return;
+    if (/\benquire\b/i.test((el.textContent || '').trim())) wire(el);
+  });
+
+  /* Form → compose email + confirm (no backend) */
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const fd = new FormData(form);
+    const name = (fd.get('name') || '').toString();
+    const email = (fd.get('email') || '').toString();
+    const message = (fd.get('message') || '').toString();
+    const subject = 'Studio enquiry' + (name ? ' — ' + name : '');
+    const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    window.location.href = 'mailto:hello@tabukasqis.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    note.hidden = false;
+    const btn = form.querySelector('.cm-submit');
+    btn.innerHTML = 'Sent &#10003;';
+  });
+})();
+</script>
+</body>
+</html>
