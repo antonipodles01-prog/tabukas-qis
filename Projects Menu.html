@@ -1332,73 +1332,75 @@
   }
 
   /* ============ MOBILE FIXES ============ */
-  /* Larger panel height for many-item categories */
   .proj.open .proj-panel { max-height: 5000px; }
 
   @media (max-width: 640px) {
-    /* Hero */
+    /* ---- HERO ---- */
     .tq-hero { padding: 24px 20px 56px; gap: 32px; min-height: auto; }
-    .tq-hero__pull { font-size: 17px; }
+    .tq-hero__pull { font-size: 17px; max-width: 100%; }
 
-    /* Section headings */
-    .roman-numeral { font-size: 5rem; }
+    /* ---- SECTION HEADINGS ---- */
+    .roman-numeral { font-size: 4rem; }
+    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; }
 
-    /* Works: gallery 2-col on mobile */
-    .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .card-title { font-size: 13px; }
+    /* ---- SECTION PADDING ---- */
+    .px-12 { padding-left: 20px !important; padding-right: 20px !important; }
+    .py-24 { padding-top: 48px !important; padding-bottom: 48px !important; }
+    .py-32 { padding-top: 64px !important; padding-bottom: 64px !important; }
+
+    /* ---- FIX ABOUT GRID OVERFLOW ----
+       grid-cols-12 + gap-12 in ~335px: 11×48px gaps = 528px > container width → overflow.
+       Collapse to single column. */
+    .grid-cols-12 { grid-template-columns: 1fr !important; }
+    .gap-12 { gap: 28px !important; }
+
+    /* ---- WORKS / GALLERY ---- */
+    .proj-head { padding: 20px 12px; }
+    .proj-panel-inner { padding: 4px 10px 40px; }
+    .gallery { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+    .card-title { font-size: 12px; }
     .card-sub { font-size: 8px; }
-    .proj-panel-inner { padding: 4px 8px 40px; }
-    .proj-head { padding: 20px 10px; }
+    .card-index { font-size: 9px; }
 
-    /* Index list: hide year column */
-    .idx-line { grid-template-columns: 28px 1fr 1fr auto; gap: 10px; }
-    .idx-line .l-year { display: none; }
-    .idx-line .l-name { font-size: 17px; }
+    /* ---- INDEX LIST ---- */
+    .idx-line { grid-template-columns: 28px 1fr auto; gap: 8px; }
+    .idx-line .l-sub, .idx-line .l-year { display: none; }
+    .idx-line .l-name { font-size: 16px; }
 
-    /* Pricing — ledger: collapse to card layout */
+    /* ---- LIGHTBOX ---- */
+    .lb-stage { grid-template-columns: 1fr !important; grid-template-rows: 52vh auto; }
+    .lb-image-wrap { padding: 16px; }
+    .lb-desc { padding: 20px 20px 32px; gap: 12px; overflow-y: auto; max-height: 48vh; }
+    .lb-title { font-size: 30px; }
+    .lb-body { font-size: 14px; }
+    .lb-spec { grid-template-columns: 80px 1fr; gap: 8px 10px; font-size: 10px; }
+    .lb-actions { flex-wrap: wrap; gap: 10px; }
+    .lb-chrome { top: 14px; left: 16px; font-size: 8px; gap: 14px; }
+    .lb-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 18px; }
+    .lb-nav { bottom: 16px; right: 16px; }
+
+    /* ---- PRICING — LEDGER ---- */
     .lg-head { display: none; }
-    .lg-row {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 8px 16px;
-      padding: 20px 12px;
-    }
+    .lg-row { grid-template-columns: 1fr auto; gap: 6px 12px; padding: 20px 0; }
     .lg-num { display: none; }
-    .lg-name { grid-column: 1; font-size: 22px; }
-    .lg-desc { grid-column: 1 / -1; font-size: 12px; }
-    .lg-price { grid-column: 2; grid-row: 1; align-items: flex-end; }
-    .lg-price .amt { font-size: 22px; }
+    .lg-name { font-size: 20px; grid-column: 1; }
+    .lg-desc { grid-column: 1 / -1; font-size: 12px; opacity: .65; }
+    .lg-price { grid-column: 2; grid-row: 1; text-align: right; }
+    .lg-price .amt { font-size: 20px; }
 
-    /* Pricing — tonal: 1 column */
+    /* ---- PRICING — TONAL ---- */
     .tonal-grid { grid-template-columns: 1fr; gap: 12px; }
-    .tonal-card { min-height: auto; padding: 22px 20px 20px; }
+    .tonal-card { min-height: auto; padding: 22px 20px 22px; }
 
-    /* Pricing — scale */
-    .scale-steps { height: 200px; }
-    .scale-step .step-label { font-size: 14px; }
-    .scale-step .step-price { font-size: 14px; }
+    /* ---- PRICING — SCALE ---- */
+    .scale-steps { height: 180px; }
+    .scale-step .step-label { font-size: 13px; }
+    .scale-step .step-price { font-size: 13px; }
+    .sc-price-amt { font-size: 52px; }
+    .scale-readout { gap: 24px; padding-top: 28px; }
 
-    /* About section padding */
-    section.py-24 { padding-top: 64px; padding-bottom: 64px; }
-    section.py-32 { padding-top: 64px; padding-bottom: 64px; }
-    .py-24.px-12 { padding-left: 16px; padding-right: 16px; }
-    .px-12 { padding-left: 16px !important; padding-right: 16px !important; }
-
-    /* Lightbox on mobile */
-    .lb-desc { padding: 24px 20px; gap: 14px; }
-    .lb-title { font-size: 36px; }
-    .lb-body { font-size: 15px; }
-    .lb-spec { grid-template-columns: 90px 1fr; gap: 10px 16px; font-size: 10px; }
-    .lb-actions { flex-wrap: wrap; }
-
-    /* Footer */
-    footer .max-w-7xl { flex-direction: column; gap: 16px; align-items: flex-start; }
-    footer .flex.gap-12 { gap: 20px; flex-wrap: wrap; }
-  }
-
-  @media (max-width: 380px) {
-    .gallery { grid-template-columns: 1fr; }
-    .tq-toggle button { padding: 10px 14px; font-size: 10px; letter-spacing: 0.2em; }
+    /* ---- FOOTER ---- */
+    footer > .max-w-7xl { flex-direction: column !important; gap: 16px; align-items: flex-start; }
   }
 </style>
 </head>
