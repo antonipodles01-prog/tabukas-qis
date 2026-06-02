@@ -640,11 +640,19 @@
 
   /* ============ MOBILE FIXES ============ */
 
+  /* Hide on scroll-down / show on scroll-up */
+  .tq-nav { transition: transform .35s cubic-bezier(.2,.6,.2,1); }
+  .tq-nav.is-hidden { transform: translateY(-100%); }
+
   @media (max-width: 720px) {
-    .tq-nav { grid-template-columns: auto 1fr; gap: 16px; padding: 16px 20px; }
-    .tq-nav__center { grid-column: 1 / -1; grid-row: 2; }
+    /* Mobile: pill only, centred, no logo, no "say hello" */
+    .tq-nav { grid-template-columns: 1fr; justify-items: center; padding: 10px 16px; gap: 0; }
+    .tq-nav__left { display: none; }
     .tq-nav__right { display: none; }
-    .tq-toggle button { padding: 10px 18px; letter-spacing: 0.25em; }
+    .tq-nav__center { width: 100%; display: flex; justify-content: center; }
+    .tq-toggle { padding: 3px; }
+    .tq-toggle button { padding: 8px 16px; font-size: 10px; letter-spacing: 0.22em; }
+    .tq-toggle button .ewa-italic { font-size: 12px; margin-left: 4px; }
   }
 
   @media (max-width: 640px) {
@@ -989,6 +997,27 @@
     const active = wrap.querySelector('button.is-active');
     if (active) move(active, false);
   });
+})();
+
+/* ============ NAV HIDE ON SCROLL DOWN / SHOW ON SCROLL UP ============ */
+(function () {
+  const nav = document.querySelector('.tq-nav');
+  if (!nav) return;
+  let lastY = 0, ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y > lastY && y > 80) {
+        nav.classList.add('is-hidden');
+      } else {
+        nav.classList.remove('is-hidden');
+      }
+      lastY = y;
+      ticking = false;
+    });
+  }, { passive: true });
 })();
 
 /* ============ DATA ============ */

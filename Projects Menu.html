@@ -73,7 +73,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-top: -1.5rem;
+    margin-top: -1rem;
   }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #f1f1f1; }
@@ -107,11 +107,19 @@
   .tq-contact:hover .word { background-size: 100% 1px; }
   .tq-contact .cursor { width: 9px; height: 9px; background: #c8a25b; border-radius: 50%; align-self: center; animation: tq-blink 1.2s ease-in-out infinite; }
   @keyframes tq-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+  /* Hide on scroll-down / show on scroll-up */
+  .tq-nav { transition: transform .35s cubic-bezier(.2,.6,.2,1); }
+  .tq-nav.is-hidden { transform: translateY(-100%); }
+
   @media (max-width: 720px) {
-    .tq-nav { grid-template-columns: auto 1fr; gap: 16px; padding: 16px 20px; }
-    .tq-nav__center { grid-column: 1 / -1; grid-row: 2; }
+    /* Mobile: pill only, centred, no logo, no "say hello" */
+    .tq-nav { grid-template-columns: 1fr; justify-items: center; padding: 10px 16px; gap: 0; }
+    .tq-nav__left { display: none; }
     .tq-nav__right { display: none; }
-    .tq-toggle button { padding: 10px 18px; letter-spacing: 0.25em; }
+    .tq-nav__center { width: 100%; display: flex; justify-content: center; }
+    .tq-toggle { padding: 3px; }
+    .tq-toggle button { padding: 8px 16px; font-size: 10px; letter-spacing: 0.22em; }
+    .tq-toggle button .ewa-italic { font-size: 12px; margin-left: 4px; }
   }
 
   /* ====== HERO (studio) ====== */
@@ -782,7 +790,7 @@
   .lg-row:hover .lg-price .unit { opacity: 1; }
 
   /* Variant B — Tonal cards */
-  .tonal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tonal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   @media (max-width: 1100px) { .tonal-grid { grid-template-columns: repeat(2, 1fr); } }
   .tonal-card {
     background: #fff;
@@ -1340,8 +1348,10 @@
     .tq-hero__pull { font-size: 17px; max-width: 100%; }
 
     /* ---- SECTION HEADINGS ---- */
-    .roman-numeral { font-size: 4rem; }
-    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; }
+    .roman-numeral { font-size: 3.5rem; }
+    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: -0.5rem; }
+    /* Tighten the mb-24 gap between heading and content */
+    .flex.flex-col.items-center.mb-24 { margin-bottom: 2.5rem !important; }
 
     /* ---- SECTION PADDING ---- */
     .px-12 { padding-left: 20px !important; padding-right: 20px !important; }
@@ -1389,8 +1399,8 @@
     .lg-price .amt { font-size: 20px; }
 
     /* ---- PRICING — TONAL ---- */
-    .tonal-grid { grid-template-columns: 1fr; gap: 12px; }
-    .tonal-card { min-height: auto; padding: 22px 20px 22px; }
+    .tonal-grid { grid-template-columns: 1fr; gap: 20px; }
+    .tonal-card { min-height: auto; padding: 28px 22px 26px; }
 
     /* ---- PRICING — SCALE ---- */
     .scale-steps { height: 180px; }
@@ -1566,22 +1576,21 @@
         </div>
       </div>
 
-      <div class="mt-32 overflow-x-auto">
+      <div class="mt-32">
         <h4 class="serif-display text-3xl uppercase mb-10 text-center">Recognition &amp; Honors</h4>
-        <table class="w-full text-left border-collapse">
+        <table class="w-full text-left border-collapse" style="table-layout:fixed;">
           <thead>
             <tr class="border-b border-black text-[9px] uppercase tracking-[0.2em] font-bold">
               <th class="py-3 px-4">Organization</th>
               <th class="py-3 px-4">Recognition</th>
               <th class="py-3 px-4">Project</th>
-              <th class="py-3 px-4"></th>
             </tr>
           </thead>
           <tbody class="text-[10px] uppercase tracking-widest">
-            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">Awwwards</td><td class="py-4 px-4">Honorable Mention</td><td class="py-4 px-4">Frontier Label 2024</td><td class="py-4 px-4 text-right">↗</td></tr>
-            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">CSS Design Awards</td><td class="py-4 px-4">Special Kudos</td><td class="py-4 px-4">Silent Canvas Archive</td><td class="py-4 px-4 text-right">↗</td></tr>
-            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">FWA</td><td class="py-4 px-4">FWA of the Day</td><td class="py-4 px-4">Mono-01 Interface</td><td class="py-4 px-4 text-right">↗</td></tr>
-            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">SiteInspire</td><td class="py-4 px-4">Featured Site</td><td class="py-4 px-4">Tabukas Qis v1</td><td class="py-4 px-4 text-right">↗</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">Awwwards</td><td class="py-4 px-4">Honorable Mention</td><td class="py-4 px-4">Frontier Label 2024</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">CSS Design Awards</td><td class="py-4 px-4">Special Kudos</td><td class="py-4 px-4">Silent Canvas Archive</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">FWA</td><td class="py-4 px-4">FWA of the Day</td><td class="py-4 px-4">Mono-01 Interface</td></tr>
+            <tr class="border-b border-outline-variant hover:bg-black hover:text-white transition-colors cursor-default"><td class="py-4 px-4">SiteInspire</td><td class="py-4 px-4">Featured Site</td><td class="py-4 px-4">Tabukas Qis v1</td></tr>
           </tbody>
         </table>
       </div>
@@ -1654,11 +1663,8 @@
       <div class="pricing-variant" data-pv="tonal" style="display:none">
         <div class="flex items-end justify-between mb-12 border-b border-black pb-4">
           <div>
-            <div class="text-[10px] tracking-[0.4em] uppercase opacity-50 font-bold mb-2">
-</div>
             <h3 class="serif-display text-5xl md:text-6xl uppercase leading-none">Tonal <span class="italic font-light">levels</span></h3>
           </div>
-          <p class="text-[10px] tracking-[0.3em] uppercase opacity-60 max-w-sm text-right leading-relaxed">Four tiers of craftsmanship — each carrying its own colour, weight and surface quality.</p>
         </div>
 
         <div class="tonal-grid">
@@ -1886,6 +1892,27 @@
     const active = wrap.querySelector('button.is-active');
     if (active) move(active, false);
   });
+})();
+
+/* ============ NAV HIDE ON SCROLL DOWN / SHOW ON SCROLL UP ============ */
+(function () {
+  const nav = document.querySelector('.tq-nav');
+  if (!nav) return;
+  let lastY = 0, ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y > lastY && y > 80) {
+        nav.classList.add('is-hidden');
+      } else {
+        nav.classList.remove('is-hidden');
+      }
+      lastY = y;
+      ticking = false;
+    });
+  }, { passive: true });
 })();
 
 /* ================= TWEAKABLE DEFAULTS ================= */
