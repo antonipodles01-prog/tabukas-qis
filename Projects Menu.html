@@ -817,7 +817,8 @@
     gap: 10px;
     opacity: .6;
   }
-  .tonal-label .dot { width: 3px; height: 3px; background: currentColor; display: inline-block; }
+  .tonal-label .dot { display: none; }
+  .tonal-label { display: none; }
   .tonal-title {
     font-family: 'Newsreader', serif;
     font-size: 30px;
@@ -1289,19 +1290,20 @@
   .proj.open .proj-panel { max-height: 5000px; }
 
   @media (max-width: 640px) {
-    /* ---- HERO ---- */
-    .tq-hero { padding: 24px 20px 56px; gap: 32px; min-height: auto; }
+    /* ---- HERO — push content down ---- */
+    .tq-hero { padding: 56px 20px 56px; gap: 32px; min-height: auto; }
+    .tq-hero__word { font-size: clamp(64px, 17vw, 96px); }
     .tq-hero__pull { font-size: 17px; max-width: 100%; }
 
     /* ---- SECTION HEADINGS ---- */
     .roman-numeral { font-size: 3.5rem; }
     .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 20px; }
-    /* Gap between heading block and first row — target container directly */
+    /* Gap between heading block and first row */
     #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
       margin-bottom: 4rem !important;
     }
-    /* Extra breathing above first project row */
-    #projects { padding-top: 1.5rem; }
+    /* Lift the border-t line away from first row text */
+    #projects { padding-top: 2.5rem; }
 
     /* ---- LIGHTBOX — hide description, date, view-process on mobile ---- */
     .lb-body { display: none !important; }
@@ -1359,6 +1361,8 @@
     /* ---- PRICING — TONAL ---- */
     .tonal-grid { grid-template-columns: 1fr; gap: 20px; }
     .tonal-card { min-height: auto; padding: 28px 22px 26px; }
+    .tonal-label .dot { display: none; }
+    .tonal-label { opacity: 0; height: 0; margin: 0; padding: 0; }
 
     /* ---- PRICING — SCALE ---- */
     .scale-steps { height: 180px; }
@@ -1741,10 +1745,7 @@
       </div>
       <div class="flex gap-12 text-[10px] uppercase tracking-[0.4em] font-bold">
         <a class="hover:opacity-50" href="#">Instagram</a>
-        <a class="hover:opacity-50" href="#">Twitter / X</a>
-        <a class="hover:opacity-50" href="#">Savee</a>
       </div>
-      <div class="text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">STAY IN MOTION</div>
     </div>
   </footer>
 </main>
