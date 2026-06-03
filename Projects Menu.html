@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Tabukas Qis — Hand-Painted Murals &amp; Fine Art"/>
 <meta name="twitter:description" content="Hand-painted murals, paintings and curated collections."/>
 <meta name="twitter:image" content="https://tabukasqis.com/assets/og-image.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
@@ -1185,62 +1187,6 @@
   }
   .scale-cta:hover { background: #000; color: #fff; }
 
-  /* ====== TWEAKS PANEL ====== */
-  .tweaks-panel {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: #000;
-    color: #fff;
-    border: 1px solid #000;
-    padding: 18px 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    z-index: 200;
-    min-width: 280px;
-    display: none;
-  }
-  .tweaks-panel.on { display: block; }
-  .tweaks-panel h4 {
-    font-size: 9px;
-    letter-spacing: 0.4em;
-    opacity: .5;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,.15);
-    padding-bottom: 8px;
-  }
-  .tweaks-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 6px;
-    flex-wrap: wrap;
-  }
-  .tweaks-row button {
-    background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,.3);
-    padding: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .tweaks-row button.active {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-  }
-  .tweaks-row button:hover:not(.active) { border-color: #fff; }
-  .tweaks-label {
-    opacity: .5;
-    font-size: 9px;
-    letter-spacing: .3em;
-    margin-bottom: 6px;
-    margin-top: 10px;
-  }
   /* ============ CONTACT MODAL ============ */
   .cm-overlay {
     position: fixed; inset: 0; z-index: 400;
@@ -1489,10 +1435,6 @@
           </div>
           <div class="proj-right">
             <div class="proj-meta">
-              <div class="date">
-</div>
-              <div class="tag">
-</div>
             </div>
             <span class="chev">›</span>
           </div>
@@ -1511,10 +1453,6 @@
           </div>
           <div class="proj-right">
             <div class="proj-meta">
-              <div class="date">
-</div>
-              <div class="tag">
-</div>
             </div>
             <span class="chev">›</span>
           </div>
@@ -1533,10 +1471,6 @@
           </div>
           <div class="proj-right">
             <div class="proj-meta">
-              <div class="date">
-</div>
-              <div class="tag">
-</div>
             </div>
             <span class="chev">›</span>
           </div>
@@ -1568,7 +1502,7 @@
             <div>
               <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2">Availability</h5>
               <p class="text-xs leading-relaxed text-on-surface-variant">
-                We are currently accepting new projects for Q4 2024 and Q1 2025. We prioritize work in the art, culture, and high-fashion sectors.
+                We are currently accepting new commissions. We prioritise work in the art, culture, and hospitality sectors.
               </p>
               <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2 mt-8">Contact</h5>
               <p class="text-xs leading-relaxed text-on-surface-variant">
@@ -1803,7 +1737,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
       <div class="flex flex-col gap-1">
         <div class="serif-display italic text-xl">Tabukas Qis</div>
-        <div class="text-[9px] uppercase tracking-[0.3em] opacity-40">© 2024 — ALL RIGHTS RESERVED</div>
+        <div class="text-[9px] uppercase tracking-[0.3em] opacity-40">© 2026 — ALL RIGHTS RESERVED</div>
       </div>
       <div class="flex gap-12 text-[10px] uppercase tracking-[0.4em] font-bold">
         <a class="hover:opacity-50" href="#">Instagram</a>
@@ -1848,37 +1782,6 @@
   <div class="lb-nav">
     <button id="lbPrev" aria-label="Previous">‹</button>
     <button id="lbNext" aria-label="Next">›</button>
-  </div>
-</div>
-
-<!-- TWEAKS -->
-<div id="tweaksPanel" class="tweaks-panel">
-  <h4>Tweaks · Dropdown</h4>
-
-  <div class="tweaks-label">Layout</div>
-  <div class="tweaks-row" id="layoutRow">
-    <button data-layout="gallery" class="active">Gallery</button>
-    <button data-layout="index">Index</button>
-    <button data-layout="strip">Film-strip</button>
-  </div>
-
-  <div class="tweaks-label">Trigger</div>
-  <div class="tweaks-row" id="triggerRow">
-    <button data-trigger="click" class="active">Click</button>
-    <button data-trigger="hover">Hover</button>
-  </div>
-
-  <div class="tweaks-label">Single-open</div>
-  <div class="tweaks-row" id="singleRow">
-    <button data-single="true" class="active">One at a time</button>
-    <button data-single="false">Allow multiple</button>
-  </div>
-
-  <div class="tweaks-label">Pricing variant</div>
-  <div class="tweaks-row" id="pricingRow">
-    <button data-pricing="ledger" class="active">Ledger</button>
-    <button data-pricing="tonal">Tonal</button>
-    <button data-pricing="scale">Scale</button>
   </div>
 </div>
 
@@ -2097,70 +2000,17 @@ function bindTriggers() {
   });
 }
 
-/* ================= TWEAKS ================= */
-const tweaksPanel = document.getElementById("tweaksPanel");
-
-function applyLayout(v) {
-  state.layout = v;
-  document.querySelectorAll("#layoutRow button").forEach(b => {
-    b.classList.toggle("active", b.dataset.layout === v);
-  });
-  // re-render any currently open panel
-  projs.forEach(p => { if (p.classList.contains("open")) renderPanel(p); });
-}
-function applyTrigger(v) {
-  state.trigger = v;
-  document.querySelectorAll("#triggerRow button").forEach(b => {
-    b.classList.toggle("active", b.dataset.trigger === v);
-  });
-  bindTriggers();
-}
-function applySingle(v) {
-  state.single = (v === true || v === "true");
-  document.querySelectorAll("#singleRow button").forEach(b => {
-    b.classList.toggle("active", String(b.dataset.single) === String(state.single));
-  });
-}
-
+/* ================= PRICING ================= */
 function applyPricing(v) {
   state.pricing = v;
   document.querySelectorAll(".pricing-variant").forEach(el => {
     el.style.display = (el.dataset.pv === v) ? "" : "none";
   });
-  document.querySelectorAll("#pricingRow button").forEach(b => {
-    b.classList.toggle("active", b.dataset.pricing === v);
-  });
 }
-
-document.querySelectorAll("#layoutRow button").forEach(b => {
-  b.addEventListener("click", () => { applyLayout(b.dataset.layout); persist({ layout: b.dataset.layout }); });
-});
-document.querySelectorAll("#triggerRow button").forEach(b => {
-  b.addEventListener("click", () => { applyTrigger(b.dataset.trigger); persist({ trigger: b.dataset.trigger }); });
-});
-document.querySelectorAll("#singleRow button").forEach(b => {
-  b.addEventListener("click", () => { applySingle(b.dataset.single); persist({ single: b.dataset.single === "true" }); });
-});
-document.querySelectorAll("#pricingRow button").forEach(b => {
-  b.addEventListener("click", () => { applyPricing(b.dataset.pricing); persist({ pricing: b.dataset.pricing }); });
-});
-
-function persist(edits) {
-  try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits }, "*"); } catch (_) {}
-}
-
-window.addEventListener("message", (e) => {
-  const d = e.data || {};
-  if (d.type === "__activate_edit_mode") tweaksPanel.classList.add("on");
-  if (d.type === "__deactivate_edit_mode") tweaksPanel.classList.remove("on");
-});
-window.parent.postMessage({ type: "__edit_mode_available" }, "*");
 
 /* ================= INIT ================= */
-applyLayout(state.layout);
-applyTrigger(state.trigger);
-applySingle(state.single);
-applyPricing(state.pricing || "ledger");
+bindTriggers();
+applyPricing(state.pricing || "tonal");
 
 /* ================= PRICING VARIANT C — scale interactions ================= */
 const SC_DATA = [
