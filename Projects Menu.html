@@ -1286,6 +1286,25 @@
     .cm-overlay, .cm-card, .cm-left > *, .cm-right > * { transition-duration: .01ms !important; }
   }
 
+  /* ====== VIDEO CARD ====== */
+  .card-play-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s cubic-bezier(.2,.6,.2,1), background .25s;
+    pointer-events: none;
+    z-index: 4;
+  }
+  .card-video:hover .card-play-btn { transform: scale(1.1); background: #fff; }
+  .card-video.is-playing .card-play-btn { display: none; }
+
   /* ============ MOBILE FIXES ============ */
   .proj.open .proj-panel { max-height: 5000px; }
 
@@ -1918,6 +1937,8 @@ const WORKS = {
       desc: "A large-format evening piece painted over several months. Colour gathers in the lower half of the canvas, the way light does in a room at dusk." },
   ],
   interiors: [
+    { t: "Before & After",     y: "2024", place: "Residential",    img: "assets/beforeafter-cover.jpg", video: "assets/beforeafter.mp4", medium: "Full-space transformation", dims: "—",
+      desc: "A complete before-and-after interior transformation — from bare walls to a fully curated art scheme with commissioned murals and selected works." },
     { t: "Shoreditch Loft",    y: "2024", place: "Residential",    img: "assets/hero.jpg",     medium: "Full-space curation",            dims: "180 m²",
       desc: "A complete visual programme for a converted warehouse — commissioned murals, selected paintings and a palette of quiet, architectural finishes." },
     { t: "Coast House",        y: "2025", place: "Holiday home",   img: "assets/hero-alt.jpg", medium: "Curated collection",             dims: "260 m²",
@@ -1940,7 +1961,29 @@ function renderPanel(proj) {
   if (state.layout === "gallery") {
     body = `
       <div class="gallery">
-        ${works.map((w, i) => `
+        ${works.map((w, i) => w.video ? `
+          <div class="card card-video" data-cat="${cat}" data-idx="${i}">
+            <div class="card-img" style="position:relative;cursor:pointer;" onclick="playCardVideo(this)">
+              <img loading="lazy" src="${w.img}" alt="${w.t}" class="card-video-cover"/>
+              <video src="${w.video}" preload="none" playsinline loop muted
+                     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;"
+                     class="card-video-el"></video>
+              <div class="card-play-btn" aria-label="Play video">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="9" stroke="#000" stroke-width="1.5"/>
+                  <polygon points="8,6.5 14,10 8,13.5" fill="#000"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-meta">
+              <div>
+                <div class="card-title">${w.t}</div>
+                <div class="card-sub">${w.place}</div>
+              </div>
+              <span class="card-index">${idx}.${String(i+1).padStart(2,'0')} / ${w.y}</span>
+            </div>
+          </div>
+        ` : `
           <a class="card" href="#" data-cat="${cat}" data-idx="${i}">
             <div class="card-img"><img loading="lazy" src="${w.img}" alt="${w.t}"/></div>
             <div class="card-meta">
@@ -2301,6 +2344,21 @@ window.addEventListener("resize", () => {
   });
   hero.addEventListener('mouseleave', () => { art.style.transform = 'rotateY(0) rotateX(0)'; });
 })();
+
+/* ================= VIDEO CARD PLAYBACK ================= */
+function playCardVideo(cardImg) {
+  const card = cardImg.closest('.card-video');
+  const cover = cardImg.querySelector('.card-video-cover');
+  const vid   = cardImg.querySelector('.card-video-el');
+  if (!vid) return;
+  // Hide cover, show video, play
+  cover.style.opacity = '0';
+  cover.style.transition = 'opacity .4s ease';
+  vid.style.display = 'block';
+  vid.muted = true;
+  vid.play().catch(() => {});
+  card.classList.add('is-playing');
+}
 </script>
 <!-- =================== CONTACT MODAL =================== -->
 <div class="cm-overlay" id="contactModal" aria-hidden="true">
