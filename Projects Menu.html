@@ -1302,9 +1302,12 @@
     #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
       margin-bottom: 4rem !important;
     }
-    /* Push first row away from the #projects border-t line */
-    #projects > .proj:first-child { margin-top: 2rem; }
-    #projects > .proj:last-child  { margin-bottom: 1rem; }
+    /* Move the divider line to sit above MURALS, not below SELECTED WORKS.
+       Force-remove the #projects top border; put it on the first row instead. */
+    #projects { border-top-width: 0 !important; border-top: none !important; }
+    #projects > .proj:first-child { border-top: 1px solid #e5e5e5 !important; }
+    /* Big gap between "SELECTED WORKS" and the MURALS row */
+    #works > .flex { margin-bottom: 5rem !important; }
 
     /* ---- LIGHTBOX — hide description, date, view-process on mobile ---- */
     .lb-body { display: none !important; }
