@@ -1302,8 +1302,9 @@
     #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
       margin-bottom: 4rem !important;
     }
-    /* Lift the border-t line away from first row text */
-    #projects { padding-top: 2.5rem; }
+    /* Push first row away from the #projects border-t line */
+    #projects > .proj:first-child { margin-top: 2rem; }
+    #projects > .proj:last-child  { margin-bottom: 1rem; }
 
     /* ---- LIGHTBOX — hide description, date, view-process on mobile ---- */
     .lb-body { display: none !important; }
@@ -1331,6 +1332,28 @@
     .card-title { font-size: 12px; }
     .card-sub { font-size: 8px; }
     .card-index { font-size: 9px; }
+    /* No grayscale on mobile — no hover to reveal colour */
+    .card-img img { filter: none !important; }
+    /* "Click to view" badge always visible on mobile */
+    .card::before {
+      content: "Tap to view";
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+      font: 700 8px/1 'Inter', sans-serif;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(15,13,12,.5);
+      backdrop-filter: blur(4px);
+      padding: 7px 11px;
+      border-radius: 9999px;
+      opacity: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
 
     /* ---- INDEX LIST ---- */
     .idx-line { grid-template-columns: 28px 1fr auto; gap: 8px; }

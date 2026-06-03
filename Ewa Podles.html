@@ -818,6 +818,16 @@
     /* ---- FOOTER ---- */
     footer { padding: 32px 20px; }
     footer .row { flex-direction: column; gap: 16px; align-items: flex-start; }
+
+    /* ---- CAROUSEL CARDS — no fading, "Click to view" always shown ---- */
+    /* Remove whitening overlay from non-active cards in swipe scroll */
+    .stk-card::after { background: transparent !important; }
+    .stk-card:not(.is-active)::after { background: transparent !important; }
+    /* "Click to view" badge always visible on every card */
+    .stk-card::before {
+      opacity: 1 !important;
+      transform: translate(-50%, 0) !important;
+    }
   }
 </style>
 </head>
