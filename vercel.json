@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/",                  "destination": "/Projects Menu.html" },
+    { "source": "/tabukasqis",        "destination": "/Projects Menu.html" },
+    { "source": "/ewapodlespainting", "destination": "/Ewa Podles.html"    }
+  ]
+}
