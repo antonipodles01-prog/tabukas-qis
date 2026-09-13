@@ -53,7 +53,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-top: -1rem;
+    margin-top: 0.75rem;
   }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #f1f1f1; }
@@ -171,9 +171,9 @@
   .tq-layer {
     position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
     opacity: 0; transform: scale(1.1);
-    transition: opacity 1s cubic-bezier(.2,.6,.2,1);
+    transition: opacity .5s ease;
   }
-  .tq-layer.is-on { opacity: 1; transform: scale(1.12); transition: opacity 1s cubic-bezier(.2,.6,.2,1), transform 9s linear; }
+  .tq-layer.is-on { opacity: 1; transform: scale(1); transition: opacity .5s ease; }
   .tq-hero__corner {
     position: absolute; top: 16px; left: 16px; z-index: 4;
     min-width: 46px; height: 46px; padding: 0 10px;
@@ -404,7 +404,7 @@
     z-index: 180;
     background: rgba(255,255,255,0);
     pointer-events: none;
-    transition: background .6s cubic-bezier(.77,0,.18,1);
+    transition: background .28s ease;
   }
   .lb-overlay.open {
     background: #ffffff;
@@ -417,9 +417,9 @@
     grid-template-columns: 1.05fr 1fr;
     gap: 0;
     opacity: 0;
-    transition: opacity .35s ease;
+    transition: opacity .22s ease;
   }
-  .lb-overlay.open .lb-stage { opacity: 1; transition-delay: .25s; }
+  .lb-overlay.open .lb-stage { opacity: 1; transition-delay: .06s; }
   @media (max-width: 900px) {
     .lb-stage { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
   }
@@ -434,27 +434,21 @@
     background: #fafafa;
     overflow: hidden;
   }
+  /* Position is set instantly (left/top/width/height are NOT transitioned, so
+     no reflow per frame). Only opacity + transform animate — both composited. */
   .lb-flyer {
     position: fixed;
     top: 0; left: 0;
-    will-change: transform, width, height;
+    will-change: opacity, transform;
     overflow: hidden;
     background: #eae7e1;
     z-index: 190;
-    transition: transform .85s cubic-bezier(.77,0,.18,1),
-                width .85s cubic-bezier(.77,0,.18,1),
-                height .85s cubic-bezier(.77,0,.18,1),
-                border-radius .85s cubic-bezier(.77,0,.18,1);
+    opacity: 0;
+    transform: scale(.985);
+    transition: opacity .26s ease, transform .32s cubic-bezier(.22,1,.36,1);
   }
-  .lb-flyer img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: filter .9s cubic-bezier(.2,.6,.2,1), transform 1.2s cubic-bezier(.2,.6,.2,1);
-    filter: grayscale(10%);
-  }
-  .lb-overlay.open .lb-flyer img {
-    filter: grayscale(0%);
-    transform: scale(1.03);
-  }
+  .lb-flyer.is-in { opacity: 1; transform: scale(1); }
+  .lb-flyer img { width: 100%; height: 100%; object-fit: cover; }
 
   /* Right column — description */
   .lb-desc {
@@ -468,19 +462,19 @@
   @media (max-width: 1100px) { .lb-desc { padding: 48px 40px; } }
   .lb-desc .lb-stagger {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity .6s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+    transform: translateY(6px);
+    transition: opacity .3s ease, transform .3s cubic-bezier(.22,1,.36,1);
   }
   .lb-overlay.open .lb-desc .lb-stagger {
     opacity: 1;
     transform: translateY(0);
   }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(1) { transition-delay: .45s; }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(2) { transition-delay: .55s; }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(3) { transition-delay: .65s; }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(4) { transition-delay: .75s; }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(5) { transition-delay: .85s; }
-  .lb-overlay.open .lb-desc .lb-stagger:nth-child(6) { transition-delay: .95s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(1) { transition-delay: .10s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(2) { transition-delay: .12s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(3) { transition-delay: .14s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(4) { transition-delay: .16s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(5) { transition-delay: .18s; }
+  .lb-overlay.open .lb-desc .lb-stagger:nth-child(6) { transition-delay: .20s; }
 
   .lb-eyebrow {
     font-size: 10px;
@@ -575,7 +569,7 @@
   .lb-overlay.open .lb-close {
     opacity: 1;
     transform: scale(1) rotate(0);
-    transition-delay: .5s;
+    transition-delay: .14s;
   }
   .lb-close:hover { background: #000; color: #fff; }
 
@@ -594,7 +588,7 @@
     transition: opacity .5s ease;
     z-index: 200;
   }
-  .lb-overlay.open .lb-chrome { opacity: .7; transition-delay: .45s; }
+  .lb-overlay.open .lb-chrome { opacity: .7; transition-delay: .12s; }
 
   .lb-nav {
     position: fixed;
@@ -606,7 +600,7 @@
     opacity: 0;
     transition: opacity .45s ease;
   }
-  .lb-overlay.open .lb-nav { opacity: 1; transition-delay: .55s; }
+  .lb-overlay.open .lb-nav { opacity: 1; transition-delay: .16s; }
   .lb-nav button {
     width: 44px;
     height: 44px;
@@ -619,8 +613,6 @@
   }
   .lb-nav button:hover { background: #000; color: #fff; }
 
-  /* Source card fades while flying */
-  .card.is-source { opacity: 0; transition: opacity .2s; }
 
   /* Lock body scroll when lightbox open */
   body.lb-locked { overflow: hidden; }
@@ -896,7 +888,7 @@
     background: rgba(14,13,12,0);
     -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px);
     opacity: 0; pointer-events: none;
-    transition: opacity .55s ease, background .7s ease, backdrop-filter .7s ease, -webkit-backdrop-filter .7s ease;
+    transition: opacity .3s ease, background .3s ease;
   }
   .cm-overlay.is-open {
     opacity: 1; pointer-events: auto;
@@ -914,7 +906,7 @@
     overflow: hidden;
     opacity: 0;
     transform: translateY(34px) scale(.985);
-    transition: opacity .6s ease .05s, transform .7s cubic-bezier(.16,1,.3,1) .05s;
+    transition: opacity .3s ease .03s, transform .34s cubic-bezier(.22,1,.36,1) .03s;
     box-shadow: 0 50px 110px -40px rgba(0,0,0,.55);
   }
   .cm-overlay.is-open .cm-card { opacity: 1; transform: none; }
@@ -922,7 +914,7 @@
   .cm-left { background: #0e0d0c; color: #f5f2ec; padding: 56px 48px; display: flex; flex-direction: column; }
   .cm-right { background: #fff; color: #000; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
   /* staggered reveal */
-  .cm-left > *, .cm-right > * { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .cm-left > *, .cm-right > * { opacity: 0; transform: translateY(8px); transition: opacity .28s ease, transform .3s cubic-bezier(.22,1,.36,1); }
   .cm-overlay.is-open .cm-left > *, .cm-overlay.is-open .cm-right > * { opacity: 1; transform: none; }
   .cm-overlay.is-open .cm-left  > *:nth-child(1) { transition-delay: .18s; }
   .cm-overlay.is-open .cm-left  > *:nth-child(2) { transition-delay: .26s; }
@@ -1029,7 +1021,7 @@
 
     /* ---- SECTION HEADINGS ---- */
     .roman-numeral { font-size: 3.5rem; }
-    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 20px; }
+    .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 0.75rem; }
     /* Gap between heading block and first row */
     #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
       margin-bottom: 4rem !important;
@@ -1255,13 +1247,13 @@
               </p>
               <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2 mt-8">Contact</h5>
               <p class="text-xs leading-relaxed text-on-surface-variant">
-                reach out via <a class="underline font-bold" href="mailto:hello@tabukasqis.com">email</a> or follow our process on <a class="underline font-bold" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener">instagram</a>.
+                reach out via <a class="underline font-bold" href="mailto:hello@tabukasqis.com">email</a> or follow our process on <a class="underline font-bold" href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener">instagram</a>.
               </p>
             </div>
             <div>
               <h5 class="text-[10px] tracking-[0.3em] uppercase font-bold mb-4 border-b border-black pb-2">Links</h5>
               <ul class="space-y-2">
-                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener"><span class="w-1 h-1 bg-black rounded-full"></span> Instagram</a></li>
+                <li><a class="text-[10px] uppercase tracking-widest font-bold hover:underline flex items-center gap-2" href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener"><span class="w-1 h-1 bg-black rounded-full"></span> Instagram</a></li>
               </ul>
             </div>
           </div>
@@ -1369,7 +1361,7 @@
         <div class="text-[9px] uppercase tracking-[0.3em] opacity-40">© 2026 — ALL RIGHTS RESERVED</div>
       </div>
       <div class="flex gap-12 text-[10px] uppercase tracking-[0.4em] font-bold">
-        <a class="hover:opacity-50" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener">Instagram</a>
+        <a class="hover:opacity-50" href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </footer>
@@ -1686,7 +1678,7 @@ function renderViews(w) {
         flyerImg.onload = () => {
           // Each view can be a different shape — re-fit before revealing
           lbState.ar = flyerImg.naturalWidth / flyerImg.naturalHeight;
-          refitFlyer(true);
+          refitFlyer();
           flyerImg.style.opacity = "1";
         };
       }, 160);
@@ -1712,14 +1704,12 @@ function getTargetRect() {
 }
 
 /* Re-fit the flyer to the currently loaded image's true ratio */
-function refitFlyer(animate = true) {
-  if (!lbState.flyer || !lbOverlay.classList.contains("open")) return;
-  const dst = getTargetRect();
-  if (!animate) lbState.flyer.style.transition = "none";
-  lbState.flyer.style.transform = `translate3d(${dst.left}px, ${dst.top}px, 0)`;
-  lbState.flyer.style.width  = dst.width + "px";
-  lbState.flyer.style.height = dst.height + "px";
-  if (!animate) requestAnimationFrame(() => { lbState.flyer.style.transition = ""; });
+function refitFlyer() {
+  if (!lbState.flyer) return;
+  const d = getTargetRect();
+  const s = lbState.flyer.style;
+  s.left = d.left + "px"; s.top = d.top + "px";
+  s.width = d.width + "px"; s.height = d.height + "px";
 }
 
 function openLightbox(card) {
@@ -1739,62 +1729,33 @@ function openLightbox(card) {
   // Fill description first (so layout is measured correctly)
   fillDescription(cat, idx);
 
-  // Build flyer at the source position
   const flyer = document.createElement("div");
   flyer.className = "lb-flyer";
-  flyer.innerHTML = `<img loading="lazy" decoding="async"${dimAttrs(img.src)} src="${img.src}" alt=""/>`;
-  flyer.style.left = "0px";
-  flyer.style.top = "0px";
-  flyer.style.width = srcRect.width + "px";
-  flyer.style.height = srcRect.height + "px";
-  flyer.style.transform = `translate3d(${srcRect.left}px, ${srcRect.top}px, 0)`;
+  flyer.innerHTML = `<img decoding="async"${dimAttrs(img.src)} src="${img.src}" alt=""/>`;
   document.body.appendChild(flyer);
   lbState.flyer = flyer;
-
-  // Hide source card
-  card.classList.add("is-source");
   document.body.classList.add("lb-locked");
 
-  // Open overlay (this renders the right panel, etc.)
-  lbOverlay.classList.add("open");
-  lbOverlay.setAttribute("aria-hidden", "false");
-
-  // Next frame: measure destination + animate
+  // Place it at its final size/position in one go, then just fade it in.
+  refitFlyer();
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const dst = getTargetRect();
-      flyer.style.transform = `translate3d(${dst.left}px, ${dst.top}px, 0)`;
-      flyer.style.width = dst.width + "px";
-      flyer.style.height = dst.height + "px";
-    });
+    flyer.classList.add("is-in");
+    lbOverlay.classList.add("open");
+    lbOverlay.setAttribute("aria-hidden", "false");
   });
 }
 
 function closeLightbox() {
   if (!lbState.flyer) return;
-  const card = lbState.sourceCard;
-  const srcRect = card.querySelector(".card-img").getBoundingClientRect();
-
-  // Animate flyer back to source
-  lbState.flyer.style.transform = `translate3d(${srcRect.left}px, ${srcRect.top}px, 0)`;
-  lbState.flyer.style.width = srcRect.width + "px";
-  lbState.flyer.style.height = srcRect.height + "px";
-
-  // Fade description / overlay
-  lbOverlay.classList.remove("open");
-  lbOverlay.setAttribute("aria-hidden", "true");
-
   const flyer = lbState.flyer;
-  const handleEnd = () => {
-    flyer.removeEventListener("transitionend", handleEnd);
+  flyer.classList.remove("is-in");      // fade the image out
+  lbOverlay.classList.remove("open");   // and the panel with it
+  lbOverlay.setAttribute("aria-hidden", "true");
+  lbState = { cat: null, idx: 0, flyer: null, sourceCard: null, ar: null };
+  setTimeout(() => {
     flyer.remove();
-    card.classList.remove("is-source");
     document.body.classList.remove("lb-locked");
-    lbState = { cat: null, idx: 0, flyer: null, sourceCard: null };
-  };
-  flyer.addEventListener("transitionend", handleEnd);
-  // safety
-  setTimeout(() => { if (lbState.flyer === flyer) handleEnd(); }, 1100);
+  }, 300);
 }
 
 function navigate(delta) {
@@ -1809,7 +1770,7 @@ function navigate(delta) {
     img.src = works[nextIdx].img;
     img.onload = () => {
       lbState.ar = img.naturalWidth / img.naturalHeight;
-      refitFlyer(true);
+      refitFlyer();
       img.style.opacity = "1";
     };
   }, 180);
@@ -1882,19 +1843,27 @@ window.addEventListener("resize", () => {
   const art  = document.getElementById('tqArt');
   if (!hero || !art) return;
 
-  // subtle mouse parallax / 3D tilt
-  let raf = null;
+  // Subtle mouse parallax. The element rect is cached — reading it on every
+  // mousemove forces a synchronous layout and is the usual cause of tilt jank.
+  let raf = null, rect = null, mx = 0, my = 0;
+  const measure = () => { rect = art.getBoundingClientRect(); };
+  const idle = window.requestIdleCallback || (fn => setTimeout(fn, 1));
+  idle(measure);
+  addEventListener('resize', () => { rect = null; idle(measure); }, { passive: true });
+  addEventListener('scroll', () => { rect = null; }, { passive: true });
+
   hero.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
-    const r = art.getBoundingClientRect();
-    const px = (e.clientX - (r.left + r.width / 2)) / r.width;
-    const py = (e.clientY - (r.top + r.height / 2)) / r.height;
-    if (raf) cancelAnimationFrame(raf);
+    if (!rect) measure();
+    mx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+    my = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
+    if (raf) return;                       // coalesce to one write per frame
     raf = requestAnimationFrame(() => {
-      art.style.transform = `rotateY(${px * 4.5}deg) rotateX(${-py * 4.5}deg)`;
+      raf = null;
+      art.style.transform = `rotateY(${mx * 2.2}deg) rotateX(${-my * 2.2}deg)`;
     });
-  });
-  hero.addEventListener('mouseleave', () => { art.style.transform = 'rotateY(0) rotateX(0)'; });
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => { art.style.transform = ''; });
 })();
 
 /* ================= VIDEO CARD PLAYBACK ================= */
@@ -1921,9 +1890,9 @@ function playCardVideo(cardImg) {
       <h2 class="cm-title">Let's make<em>something</em></h2>
       <p class="cm-lede">Commissions, prints and studio enquiries. Tell us a little about your space or the work you have in mind — we read and reply to every message.</p>
       <div class="cm-channels">
-        <a class="cm-channel" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener">
+        <a class="cm-channel" href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener">
           <span class="cm-channel__k">Instagram</span>
-          <span class="cm-channel__v">@tabukasqis&nbsp;↗</span>
+          <span class="cm-channel__v">@tabukasqis_&nbsp;↗</span>
         </a>
         <a class="cm-channel" href="mailto:hello@tabukasqis.com">
           <span class="cm-channel__k">Email</span>

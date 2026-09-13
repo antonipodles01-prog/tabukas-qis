@@ -30,7 +30,7 @@
   body { background: #fff; color: #000; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
   .serif-display { font-family: 'Newsreader', serif; font-weight: 400; letter-spacing: -0.05em; }
   .roman-numeral { font-family: 'Newsreader', serif; font-size: 8rem; line-height: 1; font-weight: 200; opacity: .9; }
-  .section-title { font-family: 'Newsreader', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: -1.5rem; }
+  .section-title { font-family: 'Newsreader', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.75rem; }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #f1f1f1; }
   ::-webkit-scrollbar-thumb { background: #000; }
@@ -143,10 +143,10 @@
     object-fit: cover; display: block;
     opacity: 0;
     transform: scale(1.12);
-    transition: opacity 1.2s cubic-bezier(.2,.6,.2,1);
+    transition: opacity .5s ease;
     will-change: opacity, transform;
   }
-  .hero-layer.is-on { opacity: 1; transform: scale(1.14); transition: opacity 1.2s cubic-bezier(.2,.6,.2,1), transform 7s linear; }
+  .hero-layer.is-on { opacity: 1; transform: scale(1); transition: opacity .5s ease; }
   .ewa-hero__art-caption {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -214,7 +214,7 @@
   }
 
   /* ============ SECTION HEADER ============ */
-  .ewa-section-head { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 80px; }
+  .ewa-section-head { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 72px; }
 
   /* ============ ABOUT ============ */
   .ewa-about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end; }
@@ -260,18 +260,17 @@
     width: 420px; padding: 0; border: none; background: #efeae0;
     border-radius: 14px; overflow: hidden; cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform .6s cubic-bezier(.16,1,.3,1), opacity .6s, box-shadow .6s;
+    transition: transform .42s cubic-bezier(.22,1,.36,1), opacity .28s ease;
     box-shadow: 0 24px 50px -28px rgba(0,0,0,.5);
-    will-change: transform, opacity;
   }
   /* fixed width, auto height — each cover keeps its true aspect ratio, never cropped */
-  .stk-card img { width: 100%; height: auto; display: block; transition: transform .55s cubic-bezier(.16,1,.3,1); }
+  .stk-card img { width: 100%; height: auto; display: block; }
   .stk-card.is-active { box-shadow: 0 44px 84px -32px rgba(0,0,0,.55); }
   /* the front card reads as clickable via a gentle shadow lift + cue — no image zoom */
   .stk-card.is-active:hover { box-shadow: 0 50px 92px -32px rgba(0,0,0,.62); }
   .stk-card::after {
     content: ""; position: absolute; inset: 0;
-    background: rgba(255,255,255,0); transition: background .6s;
+    background: rgba(255,255,255,0); transition: background .3s ease;
     pointer-events: none;
   }
   .stk-card:not(.is-active)::after { background: rgba(250,249,246,.34); }
@@ -415,7 +414,7 @@
     background: rgba(14,13,12,0);
     -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px);
     opacity: 0; pointer-events: none;
-    transition: opacity .55s ease, background .7s ease, backdrop-filter .7s ease, -webkit-backdrop-filter .7s ease;
+    transition: opacity .3s ease, background .3s ease;
   }
   .cm-overlay.is-open {
     opacity: 1; pointer-events: auto;
@@ -433,7 +432,7 @@
     overflow: hidden;
     opacity: 0;
     transform: translateY(34px) scale(.985);
-    transition: opacity .6s ease .05s, transform .7s cubic-bezier(.16,1,.3,1) .05s;
+    transition: opacity .3s ease .03s, transform .34s cubic-bezier(.22,1,.36,1) .03s;
     box-shadow: 0 50px 110px -40px rgba(0,0,0,.55);
   }
   .cm-overlay.is-open .cm-card { opacity: 1; transform: none; }
@@ -441,7 +440,7 @@
   .cm-left { background: #0e0d0c; color: #f5f2ec; padding: 56px 48px; display: flex; flex-direction: column; }
   .cm-right { background: #fff; color: #000; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
   /* staggered reveal */
-  .cm-left > *, .cm-right > * { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .cm-left > *, .cm-right > * { opacity: 0; transform: translateY(8px); transition: opacity .28s ease, transform .3s cubic-bezier(.22,1,.36,1); }
   .cm-overlay.is-open .cm-left > *, .cm-overlay.is-open .cm-right > * { opacity: 1; transform: none; }
   .cm-overlay.is-open .cm-left  > *:nth-child(1) { transition-delay: .18s; }
   .cm-overlay.is-open .cm-left  > *:nth-child(2) { transition-delay: .26s; }
@@ -535,8 +534,8 @@
 
     /* ---- SECTION HEADINGS ---- */
     .roman-numeral { font-size: 3.5rem; line-height: 1; }
-    .section-title { font-size: 1.5rem; letter-spacing: 0.03em; margin-top: 6px; }
-    .ewa-section-head { margin-bottom: 44px; }
+    .section-title { font-size: 1.5rem; letter-spacing: 0.03em; margin-top: 0.75rem; }
+    .ewa-section-head { margin-bottom: 72px; }
     /* Exhibition section heading */
     .serif-display.text-3xl { font-size: 1.7rem !important; letter-spacing: 0.02em; }
 
@@ -768,7 +767,7 @@
         </div>
         <div>
           <h5>Contact</h5>
-          <p>Reach out via <a href="mailto:hello@tabukasqis.com" class="underline font-bold">email</a> or follow the studio on <a href="https://instagram.com/tabukasqis" target="_blank" rel="noopener" class="underline font-bold">instagram</a>.</p>
+          <p>Reach out via <a href="mailto:hello@tabukasqis.com" class="underline font-bold">email</a> or follow the studio on <a href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener" class="underline font-bold">instagram</a>.</p>
         </div>
       </div>
     </div>
@@ -863,7 +862,7 @@
       <div class="tiny">© 2026 — All rights reserved</div>
     </div>
     <div class="flex gap-12" style="font-size:10px; letter-spacing:.4em; text-transform:uppercase; font-weight:700;">
-      <a href="https://instagram.com/tabukasqis" target="_blank" rel="noopener" class="hover:opacity-50">Instagram</a>
+      <a href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener" class="hover:opacity-50">Instagram</a>
       <a href="mailto:hello@tabukasqis.com" class="hover:opacity-50">Email</a>
     </div>
   </div>
@@ -1309,9 +1308,9 @@ buildStack({
       <h2 class="cm-title">Let's make<em>something</em></h2>
       <p class="cm-lede">Commissions, prints and studio enquiries. Tell us a little about your space or the work you have in mind — we read and reply to every message.</p>
       <div class="cm-channels">
-        <a class="cm-channel" href="https://instagram.com/tabukasqis" target="_blank" rel="noopener">
+        <a class="cm-channel" href="https://www.instagram.com/tabukasqis_/" target="_blank" rel="noopener">
           <span class="cm-channel__k">Instagram</span>
-          <span class="cm-channel__v">@tabukasqis&nbsp;↗</span>
+          <span class="cm-channel__v">@tabukasqis_&nbsp;↗</span>
         </a>
         <a class="cm-channel" href="mailto:hello@tabukasqis.com">
           <span class="cm-channel__k">Email</span>
