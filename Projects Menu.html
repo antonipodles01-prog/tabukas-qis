@@ -1286,6 +1286,19 @@
     .cm-overlay, .cm-card, .cm-left > *, .cm-right > * { transition-duration: .01ms !important; }
   }
 
+  /* ====== LIGHTBOX COLLECTION VIEWS ====== */
+  .lb-views { display: flex; gap: 12px; flex-wrap: wrap; }
+  .lb-views[hidden] { display: none; }
+  .lb-view {
+    width: 66px; height: 66px; padding: 0;
+    border: 1px solid #e5e5e5; background: #fff; cursor: pointer;
+    overflow: hidden; opacity: .6;
+    transition: opacity .3s ease, border-color .3s ease, transform .3s cubic-bezier(.2,.6,.2,1);
+  }
+  .lb-view img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lb-view:hover { opacity: .9; transform: translateY(-2px); }
+  .lb-view.is-active { opacity: 1; border-color: #000; }
+
   /* ====== VIDEO CARD ====== */
   .card-play-btn {
     position: absolute;
@@ -1819,6 +1832,7 @@
         <dt>Dimensions</dt><dd>4.2 × 3.6 m</dd>
         <dt>Year</dt><dd id="lbYear">2024</dd>
       </dl>
+      <div class="lb-stagger lb-views" id="lbViews" hidden></div>
       <div class="lb-stagger lb-actions">
         <button class="lb-btn primary">Enquire <span>↗</span></button>
         <button class="lb-btn" id="lbViewProcess">View process</button>
@@ -1927,14 +1941,28 @@ const WORKS = {
       desc: "A small white-eye perched among blossom and a single open magnolia, painted with fine detail against a warm, chalky ground." },
   ],
   paintings: [
-    { t: "Study No. 04",       y: "2023", place: "Oil on linen",   img: "assets/hero-alt.jpg", medium: "Oil on linen",                   dims: "120 × 90 cm",
-      desc: "A tonal study exploring the relationship between weight and light. Part of an ongoing series of interior observations." },
-    { t: "Quiet Blue",         y: "2024", place: "Oil on panel",   img: "assets/hero.jpg",     medium: "Oil on gessoed panel",           dims: "80 × 60 cm",
-      desc: "A meditative composition in ultramarine and bone white. The surface is built slowly, through many thin layers, toward a quiet depth." },
-    { t: "Ochre Interior",     y: "2024", place: "Mixed media",    img: "assets/hero-alt.jpg", medium: "Mixed media on canvas",          dims: "150 × 110 cm",
-      desc: "A domestic interior reduced to its tonal essentials — ochre, umber, and the pale stone of an unseen window." },
-    { t: "Evening Composition",y: "2025", place: "Oil on linen",   img: "assets/hero.jpg",     medium: "Oil on linen",                   dims: "200 × 140 cm",
-      desc: "A large-format evening piece painted over several months. Colour gathers in the lower half of the canvas, the way light does in a room at dusk." },
+    { t: "Woodland Diptych",   y: "2025", place: "Diptych, framed", img: "assets/paintings/woodland-diptych.jpg",
+      extras: ["assets/paintings/woodland-diptych-situ.jpg"],
+      medium: "Mixed media on canvas", dims: "Diptych — two panels",
+      desc: "A pair of panels reading as one continuous treeline. Ochre and bone white gather behind a stand of dark trunks, the paint thinned to a wash in places and scraped back in others." },
+
+    { t: "Nightfall Polyptych", y: "2025", place: "Eight panels",   img: "assets/paintings/nightfall-polyptych.jpg",
+      extras: ["assets/paintings/nightfall-polyptych-situ.jpg"],
+      medium: "Oil on canvas — eight panels", dims: "Polyptych — eight panels",
+      desc: "Eight panels that can be hung as one long run or split into two groups of four. Branch forms emerge from near-black grounds, lit by narrow seams of gold and a single red horizontal." },
+
+    { t: "Shoreline",          y: "2025", place: "Framed",          img: "assets/paintings/shoreline.jpg",
+      extras: ["assets/paintings/shoreline-situ.jpg"],
+      medium: "Oil on canvas", dims: "—",
+      desc: "A heavily worked surface of navy, cream and ochre built in thick impasto. The composition reads as water and light meeting a dark bank — abstract, but unmistakably a landscape." },
+
+    { t: "Vessel",             y: "2024", place: "Work on paper",   img: "assets/paintings/vessel.jpg",
+      medium: "Ink and pigment on paper", dims: "Framed, mounted",
+      desc: "A single dark form held in the centre of the sheet, its edges bleeding into cracked ochre. Fine ink marks gather at the margins like a flight of birds leaving the frame." },
+
+    { t: "Drift",              y: "2024", place: "Work on paper",   img: "assets/paintings/drift.jpg",
+      medium: "Mixed media on paper", dims: "Framed, mounted",
+      desc: "A low horizon worked in soot, umber and grey, scattered with small white leaf-shapes that fall across the lower half like drifting snow." },
   ],
   interiors: [
     { t: "Before & After",     y: "2024", place: "Residential",    img: "assets/beforeafter-cover.jpg", video: "assets/beforeafter.mp4", medium: "Full-space transformation", dims: "—",
@@ -2163,6 +2191,34 @@ function fillDescription(cat, idx) {
     <dt>Dimensions</dt><dd>${w.dims}</dd>
     <dt>Year</dt><dd>${w.y}</dd>
   `;
+  renderViews(w);
+}
+
+/* Collection views — thumbnail strip when a work has more than one image */
+function renderViews(w) {
+  const strip = document.getElementById("lbViews");
+  if (!strip) return;
+  const views = [w.img, ...(w.extras || [])];
+  if (views.length < 2) { strip.hidden = true; strip.innerHTML = ""; return; }
+  strip.hidden = false;
+  strip.innerHTML = views.map((src, k) =>
+    `<button class="lb-view${k === 0 ? " is-active" : ""}" data-src="${src}" aria-label="View ${k+1}">
+       <img loading="lazy" src="${src}" alt=""/>
+     </button>`).join("");
+  strip.querySelectorAll(".lb-view").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const flyerImg = lbState.flyer && lbState.flyer.querySelector("img");
+      if (!flyerImg) return;
+      flyerImg.style.transition = "opacity .3s ease";
+      flyerImg.style.opacity = "0";
+      setTimeout(() => {
+        flyerImg.src = btn.dataset.src;
+        flyerImg.onload = () => { flyerImg.style.opacity = "1"; };
+      }, 160);
+      strip.querySelectorAll(".lb-view").forEach(b => b.classList.toggle("is-active", b === btn));
+    });
+  });
 }
 
 function getTargetRect() {
