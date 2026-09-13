@@ -346,31 +346,37 @@
     margin-bottom: 4px;
   }
 
-  /* Variant A: gallery cards grid */
+  /* Variant A: gallery cards — masonry, so works of any shape pack without gaps */
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    columns: 4;
+    column-gap: 16px;
     margin-top: 20px;
   }
-  @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) { .gallery { columns: 2; } }
   .card {
     cursor: pointer;
+    display: block;
+    width: 100%;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 16px;
     transition: transform .5s cubic-bezier(.2,.6,.2,1);
   }
   .card:hover { transform: translateY(-4px); }
+  /* No fixed aspect-ratio — each work shows at its true proportions, uncropped */
   .card-img {
-    aspect-ratio: 4/5;
     overflow: hidden;
     background: #eae7e1;
     position: relative;
   }
   .card-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform .9s cubic-bezier(.2,.6,.2,1), filter .5s;
-    filter: grayscale(10%);
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity .4s ease;
   }
-  .card:hover .card-img img { transform: scale(1.05); filter: grayscale(0%); }
+  .card:hover .card-img img { opacity: .88; }
   .card-meta {
     display: flex;
     justify-content: space-between;
@@ -1363,14 +1369,15 @@
     /* ---- WORKS / GALLERY ---- */
     .proj-head { padding: 32px 12px; }
     .proj-panel-inner { padding: 4px 10px 40px; }
-    .gallery { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+    .gallery { columns: 2 !important; column-gap: 10px; }
+    .card { margin-bottom: 10px; }
     .card-title { font-size: 12px; }
     .card-sub { font-size: 8px; }
     .card-index { font-size: 9px; }
     /* No grayscale on mobile — no hover to reveal colour */
     .card-img img { filter: none !important; }
-    /* "Click to view" badge always visible on mobile */
-    .card::before {
+    /* "Tap to view" badge — anchored inside the image, which is position:relative */
+    .card .card-img::after {
       content: "Tap to view";
       position: absolute;
       z-index: 3;
@@ -1385,10 +1392,11 @@
       backdrop-filter: blur(4px);
       padding: 7px 11px;
       border-radius: 9999px;
-      opacity: 1;
       pointer-events: none;
       white-space: nowrap;
     }
+    /* Video card has its own play button — no badge */
+    .card-video .card-img::after { content: none; }
 
     /* ---- INDEX LIST ---- */
     .idx-line { grid-template-columns: 28px 1fr auto; gap: 8px; }
@@ -2214,7 +2222,12 @@ function renderViews(w) {
       flyerImg.style.opacity = "0";
       setTimeout(() => {
         flyerImg.src = btn.dataset.src;
-        flyerImg.onload = () => { flyerImg.style.opacity = "1"; };
+        flyerImg.onload = () => {
+          // Each view can be a different shape — re-fit before revealing
+          lbState.ar = flyerImg.naturalWidth / flyerImg.naturalHeight;
+          refitFlyer(true);
+          flyerImg.style.opacity = "1";
+        };
       }, 160);
       strip.querySelectorAll(".lb-view").forEach(b => b.classList.toggle("is-active", b === btn));
     });
@@ -2228,13 +2241,24 @@ function getTargetRect() {
   const pad = { t: 48, r: 32, b: 48, l: 48 };
   const w = r.width - pad.l - pad.r;
   const h = r.height - pad.t - pad.b;
-  // Maintain 4:5 aspect
-  const ar = 4 / 5;
+  // Fit the work at its OWN aspect ratio — never crop or distort
+  const ar = lbState.ar || 4 / 5;
   let fw = w, fh = w / ar;
   if (fh > h) { fh = h; fw = h * ar; }
   const left = r.left + pad.l + (w - fw) / 2;
   const top  = r.top  + pad.t + (h - fh) / 2;
   return { left, top, width: fw, height: fh };
+}
+
+/* Re-fit the flyer to the currently loaded image's true ratio */
+function refitFlyer(animate = true) {
+  if (!lbState.flyer || !lbOverlay.classList.contains("open")) return;
+  const dst = getTargetRect();
+  if (!animate) lbState.flyer.style.transition = "none";
+  lbState.flyer.style.transform = `translate3d(${dst.left}px, ${dst.top}px, 0)`;
+  lbState.flyer.style.width  = dst.width + "px";
+  lbState.flyer.style.height = dst.height + "px";
+  if (!animate) requestAnimationFrame(() => { lbState.flyer.style.transition = ""; });
 }
 
 function openLightbox(card) {
@@ -2246,6 +2270,10 @@ function openLightbox(card) {
   lbState.cat = cat;
   lbState.idx = idx;
   lbState.sourceCard = card;
+  // True aspect ratio of this work, so the lightbox never crops it
+  lbState.ar = (img.naturalWidth && img.naturalHeight)
+    ? img.naturalWidth / img.naturalHeight
+    : srcRect.width / srcRect.height;
 
   // Fill description first (so layout is measured correctly)
   fillDescription(cat, idx);
@@ -2316,7 +2344,11 @@ function navigate(delta) {
   img.style.transition = "opacity .35s ease";
   setTimeout(() => {
     img.src = works[nextIdx].img;
-    img.onload = () => { img.style.opacity = "1"; };
+    img.onload = () => {
+      lbState.ar = img.naturalWidth / img.naturalHeight;
+      refitFlyer(true);
+      img.style.opacity = "1";
+    };
   }, 180);
   // Stagger text out/in
   const desc = document.getElementById("lbDesc");
