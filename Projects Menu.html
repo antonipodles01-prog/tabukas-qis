@@ -581,67 +581,6 @@
   /* Lock body scroll when lightbox open */
   body.lb-locked { overflow: hidden; }
 
-  /* ====== PRICING — shared ====== */
-  .pricing-variant { animation: pvIn .6s cubic-bezier(.2,.6,.2,1); }
-  @keyframes pvIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* Variant B — Tonal cards */
-  .tonal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  @media (max-width: 1100px) { .tonal-grid { grid-template-columns: repeat(2, 1fr); } }
-  .tonal-card {
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    padding: 28px 24px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    position: relative;
-    transition: border-color .3s;
-    cursor: default;
-    min-height: 380px;
-  }
-  .tonal-card:hover { border-color: #000; }
-  .tonal-label {
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    opacity: .6;
-  }
-  .tonal-label .dot { display: none; }
-  .tonal-label { display: none; }
-  .tonal-title {
-    font-family: 'Newsreader', serif;
-    font-size: 30px;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    font-weight: 300;
-    margin-top: 4px;
-  }
-  .tonal-title em { font-style: italic; font-weight: 300; display: block; margin-top: 4px; font-size: 22px; opacity: .7; }
-  .tonal-desc { font-size: 12px; line-height: 1.65; opacity: .7; font-weight: 300; flex: 1; }
-  .tonal-rule { height: 1px; background: #000; opacity: .15; }
-  .tonal-price-row { display: flex; justify-content: space-between; align-items: baseline; }
-  .tonal-price {
-    font-family: 'Newsreader', serif;
-    font-size: 28px;
-    font-style: italic;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-  }
-  .tonal-unit { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: .5; }
-  .tonal-swatch {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 8px;
-    background: var(--tone);
-  }
-
-  .tonal-cta { display: none; }
 
   /* ============ EXAMPLE REVEAL — three reveal styles ============ */
   .ex-scrim {
@@ -987,7 +926,7 @@
     .roman-numeral { font-size: 3.5rem; }
     .section-title { font-size: 1.5rem; letter-spacing: 0.04em; margin-top: 0.75rem; }
     /* Gap between heading block and first row */
-    #works > .flex, #about > .max-w-7xl > .flex, #pricing > .max-w-7xl > .flex {
+    #works > .flex, #about > .max-w-7xl > .flex {
       margin-bottom: 4rem !important;
     }
     /* Move the divider line to sit above MURALS, not below SELECTED WORKS.
@@ -1040,15 +979,7 @@
     .lb-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 18px; }
     .lb-nav { bottom: 16px; right: 16px; }
 
-    /* ---- PRICING — LEDGER ---- */
 
-    /* ---- PRICING — TONAL ---- */
-    .tonal-grid { grid-template-columns: 1fr; gap: 20px; }
-    .tonal-card { min-height: auto; padding: 28px 22px 26px; }
-    .tonal-label .dot { display: none; }
-    .tonal-label { opacity: 0; height: 0; margin: 0; padding: 0; }
-
-    /* ---- PRICING — SCALE ---- */
 
     /* ---- FOOTER ---- */
     footer > .max-w-7xl { flex-direction: column !important; gap: 16px; align-items: flex-start; }
@@ -1251,78 +1182,6 @@
     </div>
   </section>
 
-  <!-- ============== SECTION III: PRICING ============== -->
-  <section class="px-12 border-t border-outline-variant" id="pricing">
-    <div class="max-w-7xl mx-auto py-32">
-      <div class="flex flex-col items-center mb-24 text-center">
-        <span class="roman-numeral">III</span>
-        <h2 class="section-title">Pricing</h2>
-      </div>
-
-
-      <!-- === VARIANT B: TONAL CARDS === -->
-      <div class="pricing-tonal">
-        <div class="flex items-end justify-between mb-12 border-b border-black pb-4">
-          <div>
-            <h3 class="serif-display text-5xl md:text-6xl uppercase leading-none">Tonal <span class="italic font-light">levels</span></h3>
-          </div>
-        </div>
-
-        <div class="tonal-grid">
-          <article class="tonal-card" data-level="0" style="--tone:#F2F0EB; --ink:#1A1A1A;">
-            <div class="tonal-label"><span>
-</span><span class="dot"></span><span>
-</span></div>
-            <h4 class="tonal-title">Standard <em>painting</em></h4>
-            <p class="tonal-desc">Single-colour painting of walls or ceilings without decorative finishes. Paint supplied by the client. 8-hour day rate.</p>
-            <div class="tonal-rule"></div>
-            <div class="tonal-price-row"><span class="tonal-price">£250</span><span class="tonal-unit">per day</span></div>
-            <div class="tonal-swatch"></div>
-          </article>
-
-          <article class="tonal-card" data-level="1" style="--tone:#D1C2AD; --ink:#1A1A1A;">
-            <div class="tonal-label"><span>
-</span><span class="dot"></span><span>
-</span></div>
-            <h4 class="tonal-title">Basic <em>limewash · patina</em></h4>
-            <p class="tonal-desc">Decorative paint finishes — limewash, soft patina. Subtle tonal variation and a material, architectural feel for understated interiors.</p>
-            <div class="tonal-rule"></div>
-            <div class="tonal-price-row"><span class="tonal-price">£50—70</span><span class="tonal-unit">per m²</span></div>
-            <div class="tonal-swatch"></div>
-          </article>
-
-          <article class="tonal-card" data-level="2" style="--tone:#9B9382; --ink:#ffffff;">
-            <div class="tonal-label"><span>
-</span><span class="dot"></span><span>
-</span></div>
-            <h4 class="tonal-title">Signature <em>simple forms</em></h4>
-            <p class="tonal-desc">Bespoke decorative murals — simple geometric or organic motifs. Custom composition, refined palette, strong visual identity.</p>
-            <div class="tonal-rule"></div>
-            <div class="tonal-price-row"><span class="tonal-price">£110—180</span><span class="tonal-unit">per m²</span></div>
-            <div class="tonal-swatch"></div>
-          </article>
-
-          <article class="tonal-card" data-level="3" style="--tone:#A67C52; --ink:#ffffff;">
-            <div class="tonal-label"><span>
-</span><span class="dot"></span><span>
-</span></div>
-            <h4 class="tonal-title">Art piece <em>detailed mural</em></h4>
-            <p class="tonal-desc">Fully bespoke hand-painted works. Layered composition, landscapes, fine-art traditions. May incorporate gold, silver or copper leaf.</p>
-            <div class="tonal-rule"></div>
-            <div class="tonal-price-row"><span class="tonal-price">£350—700</span><span class="tonal-unit">per m²</span></div>
-            <div class="tonal-swatch"></div>
-          </article>
-        </div>
-
-        <div class="flex justify-between items-center mt-12 pt-6 border-t border-outline-variant">
-          <span class="text-[10px] tracking-[0.3em] uppercase opacity-50">
-</span>
-          <a class="text-[10px] tracking-[0.3em] uppercase font-bold border-b border-black pb-1 hover:opacity-60" href="#" data-contact-open>Request a quote ↗</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <footer class="py-12 px-12 border-t border-outline-variant">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
